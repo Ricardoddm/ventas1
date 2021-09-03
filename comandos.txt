@@ -1,0 +1,15 @@
+1.- crear carpeta en escritorio coon el nombre de ventas
+2.- arrastarar carpeta al editor de codigo 
+3.- crear carpeta llamada server
+5.- ingresar el comando npm i express morgan promise-mysql cors
+	express:modulo de nodejs para crear el servidor 
+	morgan: para ver lo que el cliente va pidiendo, las peticiones en consola 
+	promise-mysql: conectar mysql con nodejs, modulo que da soporte a mysql 
+	cors: permite conectar dos servidores para tomar peticiones mas sencillo
+una vez terminada la instalacion se creara una carpeta llamada node_modules
+6.- crear carpeta src: aqui ira todo el codigo
+7.- dentro de src crear archivo index.ts 
+8.- en concola instalar typescript con el comando npm install -g typescript
+14.- instalar el modulo nodemon con el comando npm i nodemon -D
+16.- ejecutar el comando npm run dev y el servidor empezara a funcionar 
+17.-instalar en temrinal el comando npm i @types/express -D para mas modulos y funciones
