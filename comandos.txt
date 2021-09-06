@@ -13,3 +13,12 @@ una vez terminada la instalacion se creara una carpeta llamada node_modules
 14.- instalar el modulo nodemon con el comando npm i nodemon -D
 16.- ejecutar el comando npm run dev y el servidor empezara a funcionar 
 17.-instalar en temrinal el comando npm i @types/express -D para mas modulos y funciones
+
+cd server // Para poder ejecutar el codigo
+dentro de server ejecutar el comando npm run dev y el servidor empezara a funcionar
+
+//Para guardar los cambios
+En los tres puntos "commit" y confirmar todo
+Despues volvemos a dar clic en los tre puntos en "pull", "Push"
+Seincronizamos si estoy en rama correcta y acepto, esto para que se guarden los cambios en la rama
+Colocamos una descripcion y
