@@ -1,6 +1,6 @@
-CREATE DATABASE db_ventas;
+CREATE DATABASE ventas;
 
-USE db_ventas;
+USE ventas;
 
 CREATE TABLE contacto (
     id_contacto INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -53,4 +53,4 @@ CREATE TABLE facturas (
     CONSTRAINT fk_ventas FOREIGN KEY(id_ventas) REFERENCES ventas(id_ventas)
 );
 
-DESCRIBE db_ventas;
+DESCRIBE ventas;
