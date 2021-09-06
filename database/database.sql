@@ -2,7 +2,7 @@ CREATE TABLE contacto (
     id_contacto INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_contacto VARCHAR(50) NOT NULL,
     telefono VARCHAR(10),
-    email VARCHAR(20),
+    email VARCHAR(50),
     rfc VARCHAR(13) NOT NULL
 );
 
