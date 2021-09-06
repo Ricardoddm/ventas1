@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexroutes_1 = __importDefault(require("./routes/indexroutes"));
-const dataroutes_1 = __importDefault(require("./routes/dataroutes"));
+const salesroutes_1 = __importDefault(require("./routes/salesroutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -23,7 +23,7 @@ class Server {
     }
     routes() {
         this.app.use('/', indexroutes_1.default);
-        this.app.use('/api/games', dataroutes_1.default);
+        this.app.use('/sales', salesroutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

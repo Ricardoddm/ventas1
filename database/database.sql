@@ -31,7 +31,7 @@ CREATE TABLE producto (
 );
 
 CREATE TABLE ventas (
-    id_venta INT(10) NOT NULL,
+    id_venta INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fecha timestamp NOT NULL DEFAULT current_timestamp,
     id_empresa INT(10),
     id_vendedor INT(10),
