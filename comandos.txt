@@ -22,3 +22,14 @@ En los tres puntos "commit" y confirmar todo
 Despues volvemos a dar clic en los tre puntos en "pull", "Push"
 Seincronizamos si estoy en rama correcta y acepto, esto para que se guarden los cambios en la rama
 Colocamos una descripcion y
+
+//Para ejecutar el typescript
+Se abrira una consola donde colocamos los siguientes comandos
+cd server
+npm run build
+
+//Para la conexion de mysql
+Abrir xampp
+iniciar la consola
+colocar el siguiente codigo: mysql -u root -p
+Coloco la contraseña y se inicializa
