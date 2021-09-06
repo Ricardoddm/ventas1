@@ -1,12 +1,12 @@
 import {Router} from 'express';
-//import dataController from './controllers/dataController';
+import dataController from '../controllers/datacontrollers';
 class DataRoutes{
     public router: Router= Router();
     constructor(){
         this.config();
     }
    config(): void{
-        //this.router.get('/', dataController.index);
+        this.router.get('/', dataController.index);
     }
 }
 const dataRoutes =new DataRoutes();
