@@ -1,7 +1,6 @@
 import express, { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-
 import indexRoutes from './routes/indexroutes';
 import gamesRoutes from './routes/dataroutes';
 
