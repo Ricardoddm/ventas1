@@ -38,3 +38,4 @@ Coloco la contraseña y se inicializa
 Abrir una consola de cmd en visual studio 
 cd client
 ng serve
+
