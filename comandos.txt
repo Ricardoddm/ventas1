@@ -33,3 +33,8 @@ Abrir xampp
 iniciar la consola
 colocar el siguiente codigo: mysql -u root -p
 Coloco la contraseña y se inicializa
+
+//Angular
+Abrir una consola de cmd en visual studio 
+cd client
+ng serve
