@@ -26,11 +26,8 @@ class DataController {
             //res.json({texto: 'dato ' + req.params.id});
             const { id } = req.params;
             const ventas = yield database_1.default.query('SELECT * FROM ventas WHERE id= ?', [id]); //devuelve el id seleccionado
-            if (ventas.lenght > 0) { //si el nombre de la venta es mayor a 0, lo va a mostrar
-                return res.json(ventas[0]);
-            }
-            res.status(404).json({ text: "No existe" }); //si no se encontro el nombre de la venta muestra un error
-            console.log(ventas); //manda a llamar la consulta de arriba y lo devuelve por consola
+            res.json(ventas);
+            //console.log(ventas);//manda a llamar la consulta de arriba y lo devuelve por consola
         });
     }
     create(req, res) {
@@ -56,4 +53,3 @@ class DataController {
 }
 const dataController = new DataController();
 exports.default = dataController;
-

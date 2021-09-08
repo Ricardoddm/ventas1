@@ -21,5 +21,3 @@ class DataRoutes {
 }
 const dataRoutes = new DataRoutes();
 exports.default = dataRoutes.router;
-
-
