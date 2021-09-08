@@ -1,12 +1,28 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-//import dataController from './controllers/dataController';
-class DataRoutes {
+importar;
+{
+    Enrutador;
+}
+desde;
+'express';
+importar;
+{
+    indexController;
+}
+desde;
+'../controllers/indexcontroller';
+class IndexRoutes {
     constructor() {
-        this.router = (0, express_1.Router)();
-        //this.config();
+        this.público = Enrutador();
+        esto.config();
+    }
+    config() {
+        esto.enrutador.obtener('/', indexController.index);
     }
 }
-const dataRoutes = new DataRoutes();
-exports.default = dataRoutes.router;
+const dataRoutes = new IndexRoutes();
+exportar;
+rutas;
+de;
+datos;
+predeterminadas.enrutador;
