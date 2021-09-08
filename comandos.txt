@@ -43,3 +43,8 @@ ng serve
 una consola de powershell para usar cd server y despues npm run dev
 otra consola de powershell para el typescript primero se usa cd server y despues npm run build
 otra consola de cmd para angular primero se usa cd client y despues ng serve y eso nos generara un link de localhost con un puerto especifico
+
+
+//localhost
+http://localhost:3000/ se usa con la primer consola pero requiere de la segunda ya que funcionan a la par 
+http://localhost:4200/ usa la tercer consola que es donde se mostrara como tal la app
