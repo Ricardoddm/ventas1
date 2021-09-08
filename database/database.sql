@@ -5,7 +5,7 @@ USE db_ventas;
 CREATE TABLE contacto (
     id_contacto INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_contacto VARCHAR(50) NOT NULL,
-    telefono VARCHAR(10),
+    telefono INT(10),
     email VARCHAR(20),
     rfc VARCHAR(13) NOT NULL
 );
@@ -35,7 +35,7 @@ CREATE TABLE producto (
 );
 
 CREATE TABLE ventas (
-    id_venta INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_ventas INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fecha timestamp NOT NULL DEFAULT current_timestamp,
     id_empresa INT(10),
     id_vendedor INT(10),
@@ -50,7 +50,7 @@ CREATE TABLE ventas (
 
 CREATE TABLE facturas (
     id_factura INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    CONSTRAINT fk_ventas FOREIGN KEY(id_venta) REFERENCES ventas(id_venta)
+    CONSTRAINT fk_ventas FOREIGN KEY(id_ventas) REFERENCES ventas(id_ventas)
 );
 
 DESCRIBE db_ventas;
