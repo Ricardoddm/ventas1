@@ -1,15 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-//import dataController from './controllers/dataController';
-class DataRoutes {
-    constructor() {
-        this.router = (0, express_1.Router)();
+import {Router} from 'express';
+import dataController from '../controllers/datacontrollers';
+class DataRoutes{
+    public router: Router= Router();
+    constructor(){
         this.config();
     }
-    config() {
-        //this.router.get('/', dataController.index);
+   config(): void{//metodos para que la pagina reaccione
+    //cada metodo se manda a llamar del archivo dataroutes.ts
+        this.router.get('/', dataController.list);//anteriormente llamado index y nos da todos los juegoss
+        this.router.get('/:id', dataController.getOne);//para obtener solo un dato
+        this.router.post('/', dataController.create);
+        this.router.delete('/:id', dataController.delete);
+        this.router.put('/:id', dataController.update);
     }
 }
-const dataRoutes = new DataRoutes();
-exports.default = dataRoutes.router;
+const dataRoutes =new DataRoutes();
+export default dataRoutes.router;
