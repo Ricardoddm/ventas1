@@ -9,15 +9,20 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 
 @NgModule({
+
+  // El bloque de declarations es solo para declarar los componentes propios
   declarations: [
     AppComponent,
     NavigationComponent,
-    SaleListComponent
+    SaleListComponent,
   ],
 
+  // El bloque de imports es solo para modulos nativos del nucleo de AngularJS
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // El modulo de Http se debe declarar como import
+    HttpClientModule
   ],
   
   providers: [],
