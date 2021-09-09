@@ -1,20 +1,41 @@
-<div>
-<h2>Registro de ventas</h2>
-<hr> 
-    <div style="border: 3px solid black">
-    <h4>Nueva venta</h4>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Registro de ventas</title>
+    </head>
+    <body>
+        <h2 class="headertekst">Registro de ventas</h2>
 
-        <div style="border: 7px solid whitesmoke" >
-            <p> Vendedor:  </p>
-            <p> Comprador:  </p>
-            <p> Producto/Servicio:  </p>
-            <p> Cantidad de productos/servicios:  </p>
-            <p> Subtotal:  </p>
-            <p> IVA: </p>
-            <p> Total:  </p>
-        </div>
+        <section class="form-register-ventas">
 
-    <hr>
-    <h5>Si ya completaste el registro de la venta da clic en el boton de registrar la venta </h5>
-    
-</div>
+            <h4>Nueva venta</h4>
+            <hr>
+            <label for="vendedor"> Vendedor:  </label>
+            <input class="controls" type="text" Vendedor="vendedor" id="vendedor" placeholder="Ingresa el nombre del vendedor">
+            
+            <label for="comprador">Comprador: </label>
+            <input class="controls" type="text" Comprador="comprador" id="comprador" placeholder="Ingresa el nombre del comprador">
+            
+            <label for="productos_y_servicios">Productos y Servicios: </label>
+            <input class="controls" type="text" Productos_y_Servicios="productos_y_servicios" id="productos_y_servicios" placeholder="Ingresa el producto o servicio comprado">
+            
+            <label for="cantidad">Cantidad de productos/servicios: </label>
+            <input class="controls" type="text" Cantidad="cantidad" id="cantidad" placeholder="Ingresa la cantidad de productos o servicios comprados">
+            
+           
+            <label for="subtotal">Subtotal: </label>
+            <input class="controls" type="text" Comprador="Subtotal" id="subtotal" placeholder="El subtotal de las compras es">
+            
+            <label for="iva">IVA: </label>
+            <input class="controls" type="text" Comprador="IVA" id="iva" placeholder="El IVA es ">
+            
+            <label for="total">Total: </label>
+            <input class="controls" type="text" Comprador="Total" id="total" placeholder="El total es">
+
+            <hr>
+            <input class="botons" type="submit" value="Registar venta" style="right;">
+
+        </section>
+    </body>
+</html>
