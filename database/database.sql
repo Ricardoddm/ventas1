@@ -44,3 +44,8 @@ CREATE TABLE ventas (
     CONSTRAINT fk_producto FOREIGN KEY(id_producto) REFERENCES producto(id_producto)
 );
 
+INSERT INTO contacto (nombre_contacto, telefono, email, rfc) 
+VALUES ('Antonio Aguilera', '4492918634', 'anto@gmail.com', 'AUMA310898FRT');
+
+INSERT INTO empresa (nombre_empresa, id_contacto, direccion, rfc)
+VALUES ('Investel', '2', 'Av. Aguascalientes #234', 'AFTYG987');
