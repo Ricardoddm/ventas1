@@ -5,7 +5,7 @@ class SalesController{
     public async listSales(req: Request, res: Response ){
 
         //La consulta se ejecuta solo con un SELECT hacia la tabla que se requiera enlistar
-        const sales = await db.query('SELECT * FROM contacto');
+        const sales = await db.query('SELECT * FROM ventas');
 
         res.json(sales);
     }
