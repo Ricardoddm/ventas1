@@ -33,7 +33,7 @@ class DataController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO ventas SET ?', [req.body]); //req.body lo llama de la pagina en donde se ingresan los datos
-            res.json({ message: 'creado' });
+            res.json({ message: 'Creado' });
         });
     }
     delete(req, res) {
