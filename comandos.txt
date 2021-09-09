@@ -21,3 +21,5 @@ se pregunta si requerimos descargar los paquetes se acepta: y
 21.-Siempre guardar cambios proporcionados en visual code
 22.-Para guardar cambios siempre recordar que son en la parte inferior tres puntos "commit" en "aceptar todo" 
 para resguardar seria en "push y sincronizar" para subir con git 
+23.-Para accceder ah angular se requiere poner los comandos en la consola: cd client(la carpeta que se creo)
+24.-Despúes se tiene que poner ahora:ng serve 
