@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
+import { RegisterSaleComponent } from './register-sale/register-sale.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    SaleListComponent
+    SaleListComponent,
+    RegisterSaleComponent
   ],
 
   imports: [
