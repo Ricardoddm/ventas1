@@ -15,4 +15,9 @@ una vez terminada la instalacion se creara una carpeta llamada node_modules
 17.-instalar en temrinal el comando npm i @types/express -D para mas modulos y funciones
 18.-Para correr el codigo se requiere de poner cd server despúes se pondra lo que es: npm run dev y para hacer conexión con 
 mysql se requiere de  agregar: mysql -u root -p 
-19.-
+19.-Se descargar Angular por medio de consola: cmd npm install -g, ng help
+20.-Por ultimo se tiene que crear el proyecto que se requiere para ello se prpone utilizar: ng new client (en este caso)
+se pregunta si requerimos descargar los paquetes se acepta: y
+21.-Siempre guardar cambios proporcionados en visual code
+22.-Para guardar cambios siempre recordar que son en la parte inferior tres puntos "commit" en "aceptar todo" 
+para resguardar seria en "push y sincronizar" para subir con git 
