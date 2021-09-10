@@ -23,3 +23,4 @@ se pregunta si requerimos descargar los paquetes se acepta: y
 para resguardar seria en "push y sincronizar" para subir con git 
 23.-Para accceder ah angular se requiere poner los comandos en la consola: cd client(la carpeta que se creo)
 24.-Despúes se tiene que poner ahora:ng serve 
+25.-
