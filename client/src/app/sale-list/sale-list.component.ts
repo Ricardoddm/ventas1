@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+
+//Se importa el servicio de ventas y el modelo de ventas
+import { SalesService } from '../services/sales.service';
+import { Sale } from '../models/sales';
+
 
 @Component({
   selector: 'app-sale-list',
@@ -6,10 +11,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sale-list.component.css']
 })
 export class SaleListComponent implements OnInit {
+  @HostBinding('class') classes = 'row';
 
-  constructor() { }
+  sales: any = [];
 
-  ngOnInit(): void {
+  constructor(private salesService: SalesService) { }
+
+  ngOnInit() {
+    this.getSales();
+  }
+
+  getSales() {
+    this.salesService.getSales()
+    .subscribe(
+      res => {
+        this.sales = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    );
   }
 
 }
