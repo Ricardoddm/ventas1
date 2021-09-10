@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+/* import {Request, Response} from 'express';
 import db from'../database';
 class DataController{
     public async list(req: Request, res: Response ){//este era el metodo index pero cambio de nombre
@@ -33,3 +33,4 @@ class DataController{
 }
 const dataController= new DataController();
 export default dataController;
+*/
