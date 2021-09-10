@@ -5,23 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
-import { SaleListComponent } from './sale-list/sale-list.component';
-import { NavegationComponent } from './navigation/navegation.component';
-import { RegisterSaleComponent } from './register-sale/register-sale.component';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    SaleListComponent,
-    NavegationComponent,
-    RegisterSaleComponent
-  ],
-
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-=======
 import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { SaleRegisterComponent } from './sale-register/sale-register.component';
@@ -42,14 +25,9 @@ import { SaleRegisterComponent } from './sale-register/sale-register.component';
     AppRoutingModule,
     // El modulo de Http se debe declarar como import
     HttpClientModule
->>>>>>> antonio
   ],
   
   providers: [],
   bootstrap: [AppComponent]
 })
-<<<<<<< HEAD
 export class AppModule { }
-=======
-export class AppModule { }
->>>>>>> antonio
