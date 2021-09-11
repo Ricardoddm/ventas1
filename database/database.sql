@@ -1,7 +1,3 @@
-CREATE DATABASE db_ventas;
-
-USE db_ventas;
-
 CREATE TABLE contacto (
     id_contacto INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_contacto VARCHAR(50) NOT NULL,
