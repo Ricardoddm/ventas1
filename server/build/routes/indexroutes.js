@@ -1,15 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const indexcontroller_1 = require("../controllers/indexcontroller");
-class IndexRoutes {
+//import dataController from './controllers/dataController';
+class DataRoutes {
     constructor() {
         this.router = (0, express_1.Router)();
-        this.config();
-    }
-    config() {
-        this.router.get('/', indexcontroller_1.indexController.index);
+        //this.config();
     }
 }
-const dataRoutes = new IndexRoutes();
+const dataRoutes = new DataRoutes();
 exports.default = dataRoutes.router;

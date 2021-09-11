@@ -13,11 +13,10 @@ const routes: Routes = [
     path: 'register-sale',
     component: RegisterSaleComponent
   }
-    
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }   
+export class AppRoutingModule { }
