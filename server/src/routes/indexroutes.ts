@@ -1,13 +1,13 @@
 import {Router} from 'express';
-//import dataController from './controllers/dataController';
+import {indexController } from '../controllers/indexcontroller';
 class DataRoutes{
     public router: Router= Router();
     constructor(){
-        //this.config();
+        this.config();
     }
-    /*config(): void{
-        this.router.get('/', dataController.index);
-    }*/
+    config(): void{
+        this.router.get('/', indexController.index);
+    }
 }
 const dataRoutes =new DataRoutes();
 export default dataRoutes.router;
