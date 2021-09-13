@@ -2,7 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SaleListComponent } from './sale-list/sale-list.component';
-import {RegisterSaleComponent} from './register-sale/register-sale.component';
+import { RegisterSaleComponent } from './register-sale/register-sale.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,9 @@ const routes: Routes = [
     component:  SaleListComponent
   },
   {
-    path:'register-sale',
+
+    path: 'register-sale',
+
     component: RegisterSaleComponent
   }
 ];
