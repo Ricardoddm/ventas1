@@ -13,16 +13,40 @@ una vez terminada la instalacion se creara una carpeta llamada node_modules
 14.- instalar el modulo nodemon con el comando npm i nodemon -D
 16.- ejecutar el comando npm run dev y el servidor empezara a funcionar 
 17.-instalar en temrinal el comando npm i @types/express -D para mas modulos y funciones
-18.-Para correr el codigo se requiere de poner cd server despúes se pondra lo que es: npm run dev y para hacer conexión con 
-mysql se requiere de  agregar: mysql -u root -p 
-19.-Se descargar Angular por medio de consola: cmd npm install -g, ng help
-20.-Por ultimo se tiene que crear el proyecto que se requiere para ello se prpone utilizar: ng new client (en este caso)
-se pregunta si requerimos descargar los paquetes se acepta: y
-21.-Siempre guardar cambios proporcionados en visual code
-22.-Para guardar cambios siempre recordar que son en la parte inferior tres puntos "commit" en "aceptar todo" 
-para resguardar seria en "push y sincronizar" para subir con git 
-23.-Para accceder ah angular se requiere poner los comandos en la consola: cd client(la carpeta que se creo)
-24.-Despúes se tiene que poner ahora:ng serve 
-25.-Se abren los comandos para poder correr, se agrega poweshell y en ese se da cd server, npm run dev 
-26.-Despues tambien se agrega un cmd donde se pone cd client, despues ng serve 
-27.-Por ultimo se agrega un cmd donde se pondra un cd server, npm run dev 
+
+
+cd server // Para poder ejecutar el codigo
+dentro de server ejecutar el comando npm run dev y el servidor empezara a funcionar
+
+//Para guardar los cambios
+En los tres puntos "commit" y confirmar todo
+Despues volvemos a dar clic en los tre puntos en "pull", "Push"
+Seincronizamos si estoy en rama correcta y acepto, esto para que se guarden los cambios en la rama
+Colocamos una descripcion y
+
+//Para ejecutar el typescript
+Se abrira una consola donde colocamos los siguientes comandos
+cd server
+npm run build
+
+//Para la conexion de mysql
+Abrir xampp
+iniciar la consola
+colocar el siguiente codigo: mysql -u root -p
+Coloco la contraseña y se inicializa
+
+//Angular
+Abrir una consola de cmd en visual studio 
+cd client
+ng serve
+
+//Consolas
+NOTA: NO OLVIDAR ENCENDER EL SERVICIO MYSQL Y APACHE ANTES DE EJECUTAR LOS COMANDOS
+una consola de powershell para usar cd server y despues npm run dev
+otra consola de powershell para el typescript primero se usa cd server y despues npm run build
+otra consola de cmd para angular primero se usa cd client y despues ng serve y eso nos generara un link de localhost con un puerto especifico
+
+
+//localhost
+http://localhost:3000/ se usa con la primer consola pero requiere de la segunda ya que funcionan a la par 
+http://localhost:4200/ usa la tercer consola que es donde se mostrara como tal la app

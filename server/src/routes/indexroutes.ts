@@ -12,4 +12,6 @@ class IndexRoutes{
     }
 }
 const dataRoutes =new IndexRoutes();
+
 export default dataRoutes.router;
+
