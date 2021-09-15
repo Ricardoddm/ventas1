@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import indexRoutes from './routes/indexroutes';
 import salesRoutes from './routes/salesroutes';
+import contactsRoutes from './routes/contactsroutes';
 
 class Server {
 
@@ -27,6 +28,7 @@ class Server {
     routes(): void {
         this.app.use('/', indexRoutes);
         this.app.use('/api/sales', salesRoutes);
+        this.app.use('/api/contacts', contactsRoutes)
     }
 
     start() {
