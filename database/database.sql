@@ -6,13 +6,26 @@ CREATE TABLE contacto (
     rfc VARCHAR(13) NOT NULL
 );
 
-CREATE TABLE empresa (
-    id_empresa INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre_empresa VARCHAR(20) NOT NULL,
-    id_contacto INT(10),
-    direccion VARCHAR(30) NOT NULL,
-    rfc VARCHAR(12) NOT NULL,
-    CONSTRAINT fk_contacto FOREIGN KEY(id_contacto) REFERENCES contacto(id_contacto)
+CREATE TABLE pais (
+    id_pais INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    pais VARCHAR(70) NOT NULL
+);
+
+CREATE TABLE estado (
+    id_estado INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    estado VARCHAR(70) NOT NULL
+);
+
+CREATE TABLE comprador (
+    id_comprador INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    empresa VARCHAR(50) NOT NULL,
+    representante VARCHAR(45) NOT NULL,
+    direccion TEXT NOT NULL,
+    id_pais INT(10) NOT NULL,
+    id_estado INT(10) NOT NULL,
+    rfc VARCHAR(20) NOT NULL,
+    CONSTRAINT fk_pais FOREIGN KEY(id_pais) REFERENCES pais(id_pais), 
+    CONSTRAINT fk_estado FOREIGN KEY(id_estado) REFERENCES estado(id_estado)
 );
 
 CREATE TABLE vendedor (
@@ -32,17 +45,18 @@ CREATE TABLE producto (
 
 CREATE TABLE ventas (
     id_venta INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fecha timestamp NOT NULL DEFAULT current_timestamp,
-    id_empresa INT(10),
-    id_vendedor INT(10),
-    id_producto INT(10),
-    subtotal DECIMAL(7,2),
-    cantidad INT(5),
-    total DECIMAL(7,2),
+    id_vendedor INT(10) NOT NULL,
+    id_producto INT(10) NOT NULL,
+    subtotal DECIMAL(7,2) NOT NULL,
+    cantidad INT(5) NOT NULL,
+    total DECIMAL(7,2) NOT NULL,
+    estado VARCHAR(30) NOT NULL,
     CONSTRAINT fk_empresa FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa),
     CONSTRAINT fk_vendedor FOREIGN KEY(id_vendedor) REFERENCES vendedor(id_vendedor), 
     CONSTRAINT fk_producto FOREIGN KEY(id_producto) REFERENCES producto(id_producto)
 );
+
+
 
 INSERT INTO contacto (nombre_contacto, telefono, email, rfc) 
 VALUES ('Antonio Aguilera', '4492918634', 'anto@gmail.com', 'AUMA310898FRT');
