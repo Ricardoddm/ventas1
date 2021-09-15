@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { SaleRegisterComponent } from './sale-register/sale-register.component';
+import{SalesService} from './services/sales.service'
 
 @NgModule({
 
@@ -27,7 +28,9 @@ import { SaleRegisterComponent } from './sale-register/sale-register.component';
     HttpClientModule
   ],
   
-  providers: [],
+  providers: [
+    SalesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

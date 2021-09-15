@@ -13,22 +13,16 @@ import { Sale } from '../models/sales';
 export class SaleListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
-  sales: any = [];
+  cont: any = [];
 
   constructor(private salesService: SalesService) { }
 
   ngOnInit() {
-    this.getSales();
-  }
-
-  getSales() {
-    this.salesService.getSales()
-    .subscribe(
-      res => {
-        this.sales = res;
-        console.log(res);
+    this.salesService.getContactos().subscribe(
+      res=>{
+        this.cont=res;
       },
-      err => console.error(err)
+      err=> console.error(err)
     );
   }
 
