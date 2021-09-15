@@ -35,7 +35,17 @@
          border: 1px solid;
          font-family: 'Arial';
          font-size: 18px;
-        
+    }
+
+    .form-control{
+        width: 100%;
+        background:white;
+        padding: 7px;
+        border-radius: 7px;
+        margin-bottom: 3px;
+        border: 1px solid;
+        font-family: 'Arial';
+        font-size: 18px;
     }
     
     .form-register-ventas .botons{

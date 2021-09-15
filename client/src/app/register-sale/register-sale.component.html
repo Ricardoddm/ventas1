@@ -11,42 +11,67 @@
 
             <h4>Nueva venta</h4>
             <hr>
-            <label for="vendedor"> Vendedor:  </label>
-            <input class="controls" type="text" Vendedor="vendedor" id="vendedor" placeholder="Ingresa el nombre del vendedor">
-            
-            <label for="comprador">Comprador: </label>
-            <input class="controls" type="text" Comprador="comprador" id="comprador" placeholder="Ingresa el nombre del comprador">
-            
-            <label for="productos_y_servicios">Productos y Servicios: </label>
-            <input class="controls" type="text" Productos_y_Servicios="productos_y_servicios" id="productos_y_servicios" placeholder="Ingresa el producto o servicio comprado">
             
             <div class="form-group">
-                <label for="productos_y_servicios" class="form-label mt-4">Productos y Servicios: </label>
-                <select class="controls" id="productos_y_servicios" >
-                  <option>Internet</option>
-                  <option>Reparaciones</option>
-                  <option>Consultoria</option>
-                  <option>Creación de software a la medida</option>
-                  <option>Otros</option>
+                <label for="vendedor" class="form-label mt-4">Vendedor: </label>
+                <select class="controls" id="vendedor" >
+                  <option placeholder="Ingresa el nombre del vendedor">Selecciona al vendedor</option>
+                  <option value="1">Vendedor 1</option>
+                  <option value="2">Vendedor 2</option>
+                  <option value="3">Vendedor 3</option>
+                  <option value="4">Vendedor 4</option>
+                  <option value="5">Vendedor 5</option>
                 </select>
               </div>
+            
+            <div class="form-group">
+                <label for="comprador" class="form-label mt-4">Comprador: </label>
+                <select class="controls" id="comprador" >
+                  <option placeholder="Selecciona al comprador">Selecciona al comprador</option>
+                  <option value="1">Comprador 1</option>
+                  <option value="2">Comprador 2</option>
+                  <option value="3">Comprador 3</option>
+                  <option value="4">Comprador 4</option>
+                  <option value="5">Comprador 5</option>
+                </select>
+              </div>
+            
+            <div class="form-group">
+                <label for="productos" class="form-label mt-4">Productos: </label>
+                <select class="controls" id="productos" >
+                  <option placeholder="Selecciona el producto">Selecciona al producto</option>
+                  <option value="1">Internet</option>
+                  <option value="2">Reparaciones</option>
+                  <option value="3">Consultoria</option>
+                  <option value="4">Creación de software a la medida</option>
+                  <option value="5">Otros</option>
+                </select>
+            </div>
+            
+            <div class="row mb-1 justify-content-center">
+                <label for="cantidad" class="col-sm-1 col-form-label">Cantidad</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="cantidad">
+                </div> 
+                <label for="subtotal" class="col-sm-1 col-form-label">Subtotal</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="subtotal">
+                </div>  
+            
+                <label for="iva" class="col-sm-1 col-form-label">IVA</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="iva">
+                </div> 
 
-            <label for="cantidad">Cantidad de productos/servicios: </label>
-            <input class="controls" type="text" Cantidad="cantidad" id="cantidad" placeholder="Ingresa la cantidad de productos o servicios comprados">
-            
-           
-            <label for="subtotal">Subtotal: </label>
-            <input class="controls" type="text" Comprador="Subtotal" id="subtotal" placeholder="El subtotal de las compras es">
-            
-            <label for="iva">IVA: </label>
-            <input class="controls" type="text" Comprador="IVA" id="iva" placeholder="El IVA es ">
-            
-            <label for="total">Total: </label>
-            <input class="controls" type="text" Comprador="Total" id="total" placeholder="El total es">
-
+            </div>
+        
+            <label for="total" class="col-sm-1 col-form-label">Total</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="total">
+            </div>  
             <hr>
-            <input class="botons" type="submit" value="Registar venta" style="float:right;">
-
+            <input class="botons" type="submit" value="Registar venta">
+            <!--  style="float:right;"-->
         </section>
     </body>
 </html>
