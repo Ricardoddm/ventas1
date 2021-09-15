@@ -5,5 +5,5 @@ export interface Sale{
     nombre_contacto?: string;
     telefono?: string;
     correo?: string;
-    rfc?: string;
+    RFC?: string;
 }

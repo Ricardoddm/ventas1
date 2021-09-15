@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import {Sale} from 'src/app/models/sales'
+import {Sale} from 'src/app/models/sales';
+import{ SalesService }from '../services/sales.service';
 
 @Component({
   selector: 'app-register-sale',
@@ -11,14 +12,17 @@ export class RegisterSaleComponent implements OnInit {
 
   contacto: Sale={
     id_contacto:0,
-    nombre_contacto :'',
-    telefono: '',
-    correo: '',
-    rfc: ''
+    nombre_contacto :' ',
+    telefono: ' ',
+    correo: ' ',
+    RFC: ' '
   };
-  constructor() { }
+  constructor(private contactosService: SalesService ) { }
 
   ngOnInit(): void {
+  }
+  SaveNewContacto(){
+    console.log(this.contacto);
   }
 
 }
