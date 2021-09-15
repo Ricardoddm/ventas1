@@ -27,20 +27,20 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `contactos`
 --
 
-CREATE TABLE 'contactos' (
-  'id_contacto' INT(10) NOT NULL,
-  'nombre_contacto' VARCHAR(50) NOT NULL,
-  'telefono' VARCHAR(12) DEFAULT NULL,
-  'email' VARCHAR(50) DEFAULT NULL,
-  'rfc' VARCHAR(13) NOT NULL
+CREATE TABLE `contactos` (
+  `id_contacto` int(10) NOT NULL,
+  `nombre_contacto` varchar(70) NOT NULL,
+  `telefono` varchar(12) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `rfc` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `contactos`
 --
 
-INSERT INTO 'contactos' ('id_contacto', 'nombre_contacto', 'telefono', 'email', 'rfc') VALUES
-(1, 'Juanito Perez', '4492918634', 'antonio.aguilerimon@', 'AUMA31089845');
+INSERT INTO `contactos` (`id_contacto`, `nombre_contacto`, `telefono`, `email`, `rfc`) VALUES
+(1, 'Juanito Perez', '524492918634', 'antonio.aguilerimon@', 'AUMA31089845');
 
 -- --------------------------------------------------------
 
@@ -69,11 +69,11 @@ INSERT INTO `lugares` (`id_lugar`, `pais`, `estado`, `direccion`, `cp`) VALUES
 --
 
 CREATE TABLE `compradores` (
-	  'id_comprador' INT(10) NOT NULL,
-    'empresa_comprador' VARCHAR(70) NOT NULL,
-    'id_contacto' INT(10) DEFAULT NULL,
-    'id_lugar' INT(10) NOT NULL,
-    'rfc' VARCHAR(13) NOT NULL,
+	  `id_comprador` INT(10) NOT NULL,
+    `empresa_comprador` VARCHAR(70) NOT NULL,
+    `id_contacto` INT(10) DEFAULT NULL,
+    `id_lugar` INT(10) NOT NULL,
+    `rfc` VARCHAR(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -114,7 +114,7 @@ CREATE TABLE `productos` (
   `descripcion` text NOT NULL,
   `precio_unitario` decimal(7,2) NOT NULL,
   `existencia` int(7) NOT NULL,
-  'garantia' INT(7) NOT NULL
+  `garantia` INT(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -157,7 +157,7 @@ INSERT INTO `ventas` (`id_venta`, `fecha`, `id_comprador`, `id_vendedor`, `id_pr
 
 CREATE TABLE `facturas` (
   `id_factura` int(10) NOT NULL,
-  `id_venta` int(10) DEFAULT NULL
+  `id_venta` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -183,7 +183,7 @@ ALTER TABLE `contactos`
 -- Indices de la tabla `lugares`
 --
 ALTER TABLE `lugares`
-  ADD PRIMARY KEY (`id_lugares`);
+  ADD PRIMARY KEY (`id_lugar`);
 
 --
 -- Indices de la tabla `compradores`
@@ -216,9 +216,9 @@ ALTER TABLE `ventas`
 --
 -- Indices de la tabla `facturas`
 --
-ALTER TABLE `factuas`
+ALTER TABLE `facturas`
   ADD PRIMARY KEY (`id_factura`),
-  ADD KEY `fk_venta` (`id_venta`)
+  ADD KEY `fk_venta` (`id_venta`);
 
 
 
@@ -230,42 +230,42 @@ ALTER TABLE `factuas`
 -- AUTO_INCREMENT de la tabla `contactos`
 --
 ALTER TABLE `contactos`
-  MODIFY `id_contacto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_contacto` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `lugares`
 ALTER TABLE `lugares`
-  MODIFY `id_lugar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_lugar` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `compradores`
 --
 ALTER TABLE `compradores`
-  MODIFY `id_comprador` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_comprador` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedores`
 --
 ALTER TABLE `vendedores`
-  MODIFY `id_vendedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_vendedor` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id_venta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_venta` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
-  MODIFY `id_factura` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_factura` int(10) NOT NULL  AUTO_INCREMENT;
 
 
 
@@ -277,7 +277,7 @@ ALTER TABLE `facturas`
 -- Filtros para la tabla `compradores`
 --
 ALTER TABLE `compradores`
-  ADD CONSTRAINT `fk_contacto` FOREIGN KEY (`id_contacto`) REFERENCES `contactos` (`id_contacto`);
+  ADD CONSTRAINT `fk_contacto` FOREIGN KEY (`id_contacto`) REFERENCES `contactos` (`id_contacto`),
   ADD CONSTRAINT `fk_lugar` FOREIGN KEY (`id_lugar`) REFERENCES `lugares` (`id_lugar`);
 
 --
