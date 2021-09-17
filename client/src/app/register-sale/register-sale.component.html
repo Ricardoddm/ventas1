@@ -12,19 +12,19 @@
             <h4>Nuevo contacto</h4>
             
             <label for="vendedor"> nombre del contacto:  </label>
-            <input class="controls" type="text" [(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
+            <input class="controls" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
             
             <label for="comprador">telefono del contacto: </label>
-            <input class="controls" type="text" [(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
+            <input class="controls" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
             
             <label for="productos_y_servicios">correo del contacto: </label>
-            <input class="controls" type="text"  [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
+            <input class="controls" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
             
             <label for="cantidad">RFC: </label>
-            <input class="controls" type="text"  [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
+            <input class="controls" type="text" name="RFC" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
             
             <div>
-                <button class="btn btn-success btn-block" (click)="SaveNewContacto">Agregar contacto</button>
+                <button class="btn btn-success btn-block" (click)="save()">Agregar contacto</button>
             </div>
         </section>
     </body>

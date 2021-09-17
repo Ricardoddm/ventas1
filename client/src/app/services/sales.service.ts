@@ -25,7 +25,7 @@ export class SalesService {
   saveContacto(contacto:Sale){
     return this.http.post(`${this.API_URI}/sales`, contacto)
   }
-  updateContacto(id: string , updated:Sale): Observable<Sale>{
+  updateContacto(id: string|number, updated:Sale): Observable<Sale>{
     return this.http.put(`${this.API_URI}/sales/${id}`,updated)
   }
 }
