@@ -1,78 +1,50 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>Registro de ventas</title>
-    </head>
-    <body>
-       <form method="POST">
-        <h2 class="headertekst">Registro de ventas</h2>
-
-        <section class="form-register-ventas">
-
-            <h4>Nueva venta</h4>
-            <hr>
-            
-            <div class="form-group">
-                <label for="vendedor" class="form-label mt-4">Vendedor: </label>
-                <select class="controls" id="vendedor" required >
-                  <option placeholder="Ingresa el nombre del vendedor">Selecciona al vendedor</option>
-                  <option value="1">Vendedor 1</option>
-                  <option value="2">Vendedor 2</option>
-                  <option value="3">Vendedor 3</option>
-                  <option value="4">Vendedor 4</option>
-                  <option value="5">Vendedor 5</option>
-                </select>
-              </div>
-            
-            <div class="form-group">
-                <label for="comprador" class="form-label mt-4">Comprador: </label>
-                <select class="controls" id="comprador" required>
-                  <option placeholder="Selecciona al comprador">Selecciona al comprador</option>
-                  <option value="1">Comprador 1</option>
-                  <option value="2">Comprador 2</option>
-                  <option value="3">Comprador 3</option>
-                  <option value="4">Comprador 4</option>
-                  <option value="5">Comprador 5</option>
-                </select>
-              </div>
-            
-            <div class="form-group">
-                <label for="productos" class="form-label mt-4">Productos: </label>
-                <select class="controls" id="productos" required>
-                  <option placeholder="Selecciona el producto">Selecciona al producto</option>
-                  <option value="1">Internet</option>
-                  <option value="2">Reparaciones</option>
-                  <option value="3">Consultoria</option>
-                  <option value="4">Creación de software a la medida</option>
-                  <option value="5">Otros</option>
-                </select>
-            </div>
-            
-            <div class="row mb-1 justify-content-center">
-                <label for="cantidad" class="col-sm-1 col-form-label">Cantidad</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="cantidad" required>
-                </div> 
-                <label for="subtotal" class="col-sm-1 col-form-label">Subtotal</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="subtotal" required>
+<h1>Añadir Contacto</h1>
+<br>
+<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card-body">
+        <form action="">
+            <div class="row mb-3 justify-content-center">
+                <label for="vendedor"> nombre del contacto:  </label>
+                <div class="col-sm-5">
+                    <input class="controls" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
                 </div>  
-            
-                <label for="iva" class="col-sm-1 col-form-label">IVA</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="iva" required>
-                </div> 
+                <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
+                <div class="col-sm-8">
+                    <select class="form-select" [(ngModel)]="selected" name="Selected">
+                        <option selected>Selecciona un comprador</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
+                    </select>    
+                    {{selected}}
+                </div>-->
             </div>
-        
-            <label for="total" class="col-sm-1 col-form-label">Total</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" id="total" required>
-            </div>  
-            <hr>
-            <input class="botons" type="submit" value="Registar venta">
+
+            <div class="row mb-3 justify-content-center">
+                <label for="comprador">telefono del contacto: </label>
+                <div class="col-sm-5">
+                    <input class="controls" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
+                </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="productos_y_servicios">correo del contacto: </label>
+                <div class="col-sm-5">
+                    <input class="controls" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
+                </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="cantidad">RFC: </label>
+                <div class="col-sm-5">
+                    <input class="controls" type="text" name="rfc" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
+                </div>  
+            </div>
+
             
-        </section>
-       </form>
-    </body>
-</html>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-success" (click)="save()">Guardar Contacto</button>
+            </div>
+        </form>    
+    </div>
+</div>
