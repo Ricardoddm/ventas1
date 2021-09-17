@@ -2,15 +2,15 @@ import {Request, Response} from 'express';
 import db from'../database';
 
 class SalesController{
-    public async listSales(req: Request, res: Response ){
+    public async list(req: Request, res: Response ){
 
         //La consulta se ejecuta solo con un SELECT hacia la tabla que se requiera enlistar
-        const sales = await db.query('SELECT * FROM ventas');
+        const sales = await db.query('SELECT * FROM contactos');
 
         res.json(sales);
     }
 
-    public async createSale(req: Request, res: Response){
+    public async create(req: Request, res: Response){
         //Se muestra el cuerpo del request JSON
         console.log(req.body);
 

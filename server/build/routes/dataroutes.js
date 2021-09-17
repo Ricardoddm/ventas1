@@ -13,7 +13,7 @@ class DataRoutes {
     config() {
         //cada metodo se manda a llamar del archivo dataroutes.ts
         this.router.get('/', datacontrollers_1.default.list); //anteriormente llamado index y nos da todos los juegoss
-        this.router.get('/:id', datacontrollers_1.default.getOne); //para obtener solo un dato
+       // this.router.get('/:id', datacontrollers_1.default.getOne); //para obtener solo un dato
         this.router.post('/', datacontrollers_1.default.create);
         this.router.delete('/:id', datacontrollers_1.default.delete);
         this.router.put('/:id', datacontrollers_1.default.update);

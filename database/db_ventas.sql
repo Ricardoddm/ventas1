@@ -48,8 +48,8 @@ INSERT INTO `contacto` (`id_contacto`, `nombre_contacto`, `telefono`, `email`, `
 -- Estructura de tabla para la tabla `empresa`
 --
 
-CREATE TABLE `empresa` (
-  `id_empresa` int(10) NOT NULL,
+CREATE TABLE `compradores` (
+  `id_comprador` int(10) NOT NULL,
   `nombre_empresa` varchar(20) NOT NULL,
   `id_contacto` int(10) DEFAULT NULL,
   `direccion` varchar(30) NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE `ventas` (
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id_venta`, `fecha`, `id_empresa`, `id_vendedor`, `id_producto`, `subtotal`, `cantidad`, `total`) VALUES
+INSERT INTO `ventas` (`id_venta`, `fecha`, `id_comprador`, `id_vendedor`, `id_producto`, `subtotal`, `cantidad`, `total`) VALUES
 (1, '2021-09-09 22:47:50', 1, 1, 1, '3500.00', 3500, '3500.00'),
 (2, '2021-09-09 22:56:42', 1, 1, 1, '4000.00', 4000, '4000.00');
 
@@ -142,8 +142,8 @@ ALTER TABLE `contacto`
 --
 -- Indices de la tabla `empresa`
 --
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`id_empresa`),
+ALTER TABLE `compradores`
+  ADD PRIMARY KEY (`id_comprador`),
   ADD KEY `fk_contacto` (`id_contacto`);
 
 --
@@ -163,7 +163,7 @@ ALTER TABLE `vendedor`
 --
 ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id_venta`),
-  ADD KEY `fk_empresa` (`id_empresa`),
+  ADD KEY `fk_comprador` (`id_comprador`),
   ADD KEY `fk_vendedor` (`id_vendedor`),
   ADD KEY `fk_producto` (`id_producto`);
 
@@ -180,8 +180,8 @@ ALTER TABLE `contacto`
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
-ALTER TABLE `empresa`
-  MODIFY `id_empresa` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `compradores`
+  MODIFY `id_comprador` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -208,14 +208,14 @@ ALTER TABLE `ventas`
 --
 -- Filtros para la tabla `empresa`
 --
-ALTER TABLE `empresa`
+ALTER TABLE `compradores`
   ADD CONSTRAINT `fk_contacto` FOREIGN KEY (`id_contacto`) REFERENCES `contacto` (`id_contacto`);
 
 --
 -- Filtros para la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD CONSTRAINT `fk_empresa` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`),
+  ADD CONSTRAINT `fk_comprador` FOREIGN KEY (`id_comprador`) REFERENCES `compradores` (`id_comprador`),
   ADD CONSTRAINT `fk_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
   ADD CONSTRAINT `fk_vendedor` FOREIGN KEY (`id_vendedor`) REFERENCES `vendedor` (`id_vendedor`);
 COMMIT;
