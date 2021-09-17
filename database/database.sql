@@ -5,17 +5,24 @@ USE db_ventas;
 CREATE TABLE contactos(
     id_contacto INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_contacto VARCHAR(50) NOT NULL,
-    telefono VARCHAR(12) NOT NULL,
-    email VARCHAR(50)NOT NULL,
-    rfc VARCHAR(13) NOT NULL
+    telefono_contacto VARCHAR(12) NOT NULL,
+    email_contacto VARCHAR(50)NOT NULL,
+    rfc_contacto VARCHAR(13) NOT NULL
 );
 
 CREATE TABLE lugares(
 	id_lugar INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     pais VARCHAR(50) NOT NULL,
     estado VARCHAR(50) NOT NULL,
-    direccion VARCHAR(70)NOT NULL,
-    cp INT(5) NOT NULL
+    id_direccion INT(10) NOT NULL,
+    CONSTRAINT fk_direccion FOREIGN KEY(id_direccion) REFERENCES direcciones(id_direccion)
+);
+
+CREATE TABLE direcciones(
+    id_direccion INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    direccion VARCHAR(70) NOT NULL,
+    colonia VARCHAR(40) NOT NULL,
+    codigo_postal INT(5) NOT NULL
 );
 
 CREATE TABLE compradores(
@@ -23,7 +30,7 @@ CREATE TABLE compradores(
     empresa_comprador VARCHAR(70) NOT NULL,
     id_contacto INT(10),
     id_lugar INT(10),
-    rfc VARCHAR(13) NOT NULL,
+    rfc_comprador VARCHAR(13) NOT NULL,
     CONSTRAINT fk_contacto FOREIGN KEY(id_contacto) REFERENCES contactos(id_contacto),
     CONSTRAINT fk_lugar FOREIGN KEY(id_lugar) REFERENCES lugares(id_lugar)  
 );
@@ -31,8 +38,9 @@ CREATE TABLE compradores(
 CREATE TABLE vendedores (
     id_vendedor INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_vendedor VARCHAR(70) NOT NULL,
-    telefono VARCHAR(12) NOT NULL,
-    email VARCHAR(40) NOT NULL
+    telefono_vendedor VARCHAR(12) NOT NULL,
+    email_vendedor VARCHAR(40) NOT NULL,
+    rfc_vendedor VARCHAR(13) NOT NULL
 );
 
 CREATE TABLE productos(
@@ -41,7 +49,8 @@ CREATE TABLE productos(
     descripcion TEXT NOT NULL,
     precio_unitario DECIMAL(7,2) NOT NULL,
     existencia INT(7) NOT NULL,
-    garantia INT(7) NOT NULL
+    garantia INT(7) NOT NULL,
+    categoria VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE ventas(
@@ -50,19 +59,25 @@ CREATE TABLE ventas(
     id_comprador INT(10),
     id_vendedor INT(10),
     id_producto INT(10),
-    cantidad INT(5) NOT NULL,
-    subtotal DECIMAL(7,2) NOT NULL,
-    IVA DECIMAL(7,2) NOT NULL,
-    total DECIMAL(7,2)NOT NULL,
     CONSTRAINT fk_comprador FOREIGN KEY(id_comprador) REFERENCES compradores(id_comprador),
     CONSTRAINT fk_vendedor FOREIGN KEY(id_vendedor) REFERENCES vendedores(id_vendedor), 
     CONSTRAINT fk_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
 );
 
+CREATE TABLE detalle_ventas(
+    id_detalle_venta INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_venta INT(10),
+    cantidad INT(5) NOT NULL,
+    subtotal DECIMAL(7,2) NOT NULL,
+    IVA DECIMAL(7,2) NOT NULL,
+    total DECIMAL(7,2)NOT NULL,
+    CONSTRAINT fk_venta FOREIGN KEY(id_venta) REFERENCES ventas(id_venta)
+);
+
 CREATE TABLE facturas(
   id_factura INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_venta INT(10),
-  CONSTRAINT fk_venta FOREIGN KEY(id_venta) REFERENCES ventas(id_venta)
+  CONSTRAINT fk_detalle_venta FOREIGN KEY(id_detalle_venta) REFERENCES detalle_ventas(id_detalle_venta)
 );
 
 
