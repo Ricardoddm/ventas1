@@ -39,3 +39,5 @@ export class SaleListComponent implements OnInit {
     console.log(id_contacto);
   }
 }
+
+
