@@ -76,7 +76,7 @@ CREATE TABLE detalle_ventas(
 
 CREATE TABLE facturas(
   id_factura INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_venta INT(10),
+  id_detalle_venta INT(10),
   CONSTRAINT fk_detalle_venta FOREIGN KEY(id_detalle_venta) REFERENCES detalle_ventas(id_detalle_venta)
 );
 
