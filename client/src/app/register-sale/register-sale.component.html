@@ -31,6 +31,10 @@
                 <label for="productos_y_servicios">correo del contacto: </label>
                 <div class="col-sm-5">
                     <input class="controls" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
+                    <form class="form-floating">
+                        <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" value="test@example.com">
+                        <label for="floatingInputInvalid">Invalid input</label>
+                      </form>
                 </div>  
             </div>
 
@@ -38,6 +42,7 @@
                 <label for="cantidad">RFC: </label>
                 <div class="col-sm-5">
                     <input class="controls" type="text" name="RFC" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
+                    
                 </div>  
             </div>
 
