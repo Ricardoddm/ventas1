@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { RegisterSaleComponent } from './register-sale/register-sale.component';
+import { SalesService } from './services/sales.service';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
 
     path: 'register-sale',
 
+    component: RegisterSaleComponent
+  },
+  {
+    path: 'sale/edit/:id',
     component: RegisterSaleComponent
   }
 ];
