@@ -14,5 +14,10 @@ export interface Sale{
     id_producto?: number,
     subtotal?: number,
     cantidad?: number,
-    total?: number   
+    total?: number,
+    id_contacto?: string | number;
+    nombre_contacto?: string;
+    telefono?: string;
+    correo?: string;
+    RFC?: string;
 }
