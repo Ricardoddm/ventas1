@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
 import { RegisterSaleComponent } from './register-sale/register-sale.component';
+import { RegisterContactComponent } from './register-contact/register-contact.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 @NgModule({
 
@@ -17,6 +20,9 @@ import { RegisterSaleComponent } from './register-sale/register-sale.component';
     NavigationComponent,
     SaleListComponent,
     RegisterSaleComponent,
+    RegisterContactComponent,
+    ContactListComponent,
+    EditContactComponent,
   ],
 
   // El bloque de imports es solo para modulos nativos del nucleo de AngularJS

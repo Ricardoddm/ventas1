@@ -5,9 +5,16 @@ class ContactsController{
     public async listContacts(req: Request, res: Response ){
 
         //La consulta se ejecuta solo con un SELECT hacia la tabla que se requiera enlistar
-        const sales = await db.query('SELECT * FROM contacto');
+        const contact = await db.query('SELECT * FROM contactos');
 
-        res.json(sales);
+        res.json(contact);
+    }
+
+    public async getContact(req: Request, res: Response){
+        const { id } = req.params;
+        const contact = await db.query('SELECT * FROM contactos WHERE id_contacto = ?', [id]);
+        res.json(contact);
+        console.log(contact);        
     }
 
     public async createContact(req: Request, res: Response){
@@ -15,18 +22,18 @@ class ContactsController{
         console.log(req.body);
 
         //La consulta se aplica con el cuerpo del request JSON despues del signo de interrogacion (?)
-        const sales = db.query('INSERT INTO contacto set ?', [req.body]);
-        res.json(sales);
+        const contact = db.query('INSERT INTO contactos set ?', [req.body]);
+        res.json(contact);
     }
 
     public async updateContact(req: Request, res: Response){
         const { id } = req.params;
-        const saleInfo = req.body;
+        const contactInfo = req.body;
 
         console.log(id);
-        console.log(saleInfo);
+        console.log(contactInfo);
 
-        await db.query('UPDATE contacto SET ? WHERE id_contacto = ?', [saleInfo, id]);
+        await db.query('UPDATE contactos SET ? WHERE id_contacto = ?', [contactInfo, id]);
 
         res.json({message: "Se actualizo una venta existente"});
     }
@@ -37,7 +44,7 @@ class ContactsController{
         const { id } = req.params;
         
         //Se ejecuta la consulta con el id del registro
-        await db.query('DELETE FROM contacto WHERE id_contacto = ?', [id]);
+        await db.query('DELETE FROM contactos WHERE id_contacto = ?', [id]);
         res.json({text:'Se ha eliminado una venta'});
     }
 }
