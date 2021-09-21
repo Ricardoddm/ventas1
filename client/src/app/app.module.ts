@@ -7,9 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
+import { RegisterSaleComponent } from './register-sale/register-sale.component';
+import { RegisterContactComponent } from './register-contact/register-contact.component';
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 import{SalesService} from './services/sales.service'
-import{RegisterSaleComponent}from './register-sale/register-sale.component'
 @NgModule({
 
   // El bloque de declarations es solo para declarar los componentes propios
@@ -22,6 +25,8 @@ import{RegisterSaleComponent}from './register-sale/register-sale.component'
 
   // El bloque de imports es solo para modulos nativos del nucleo de AngularJS
   imports: [
+    //FormModule necesario para usar ngModels
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     // El modulo de Http se debe declarar como import

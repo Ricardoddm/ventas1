@@ -1,7 +1,12 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import {Sale} from 'src/app/models/sales';
 import{ SalesService }from '../services/sales.service';
 import{Router, ActivatedRoute}from '@angular/router';
+=======
+import { ContactsService } from '../services/contacts.service';
+
+>>>>>>> 28bc0c277fc0c63d66bc08e4d44b0243c6c27967
 @Component({
   selector: 'app-register-sale',
   templateUrl: './register-sale.component.html',
@@ -10,6 +15,7 @@ import{Router, ActivatedRoute}from '@angular/router';
 export class RegisterSaleComponent implements OnInit {
   @HostBinding('class') classes='row';
 
+<<<<<<< HEAD
   contacto: Sale={
     id_contacto: 0,
     nombre_contacto :'',
@@ -43,6 +49,28 @@ export class RegisterSaleComponent implements OnInit {
         },
         err=>console.log(err)
       )
+=======
+  @HostBinding('class') classes = 'row';
+
+  contacts: any = [];
+  selected: string = '';
+
+  constructor(private salesService: ContactsService) { }
+
+  ngOnInit() {
+    this.getContacts();
+  }
+
+  getContacts() {
+    this.salesService.getContacts()
+    .subscribe(
+      res => {
+        this.contacts = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    );
+>>>>>>> 28bc0c277fc0c63d66bc08e4d44b0243c6c27967
   }
 
   update(){
