@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { SalesService } from '../services/sales.service';
-//import {Sale} from 'src/app/models/sales'
+import {RegisterSaleComponent} from '../register-sale/register-sale.component'
 
 
 @Component({
@@ -19,7 +19,8 @@ export class SaleListComponent implements OnInit {
     this.getcontactos();
   }
   getcontactos(){
-    this.salesService.getContactos().subscribe(
+    this.salesService.getContactos()
+    .subscribe(
       res=>{
         this.cont=res;
       },
@@ -34,9 +35,6 @@ export class SaleListComponent implements OnInit {
       },
       err=> console.error(err)
     );
-  }
-  edit(id_contacto:string){
-    console.log(id_contacto);
   }
 }
 

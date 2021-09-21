@@ -1,50 +1,42 @@
-<h1>Añadir Contacto</h1>
-<br>
-<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Registro de ventas</title>
+    </head>
+    <body>
+    <div class="col-md-4 offset-md-2">
+  <div class="card">
     <div class="card-body">
-        <form action="">
-            <div class="row mb-3 justify-content-center">
-                <label for="vendedor"> nombre del contacto:  </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
-                </div>  
-                <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
-                <div class="col-sm-8">
-                    <select class="form-select" [(ngModel)]="selected" name="Selected">
-                        <option selected>Selecciona un comprador</option>
-                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
-                        la propiedad 'value'
-                        <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
-                    </select>    
-                    {{selected}}
-                </div>-->
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="comprador">telefono del contacto: </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="productos_y_servicios">correo del contacto: </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="cantidad">RFC: </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="RFC" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
-                </div>  
-            </div>
-
-            
-            <div class="col text-center">
-                <button type="submit" class="btn btn-success" (click)="save()">Guardar Contacto</button>
-            </div>
-        </form>    
+      <form action="">
+        <div class="form-group">
+          <input type="text" name="nombre_contacto" [(ngModel)]="contacto.nombre_contacto" placeholder="nombre" class="form-control" autofocus>
+        </div>
+        <div class="form-group">
+          <input name="telefono" [(ngModel)]="contacto.telefono"  placeholder="telefono" class="form-control">
+        </div>
+        <div class="form-group">
+          <input name="correo" [(ngModel)]="contacto.correo" placeholder="correo" class="form-control">
+        </div>
+        <div class="form-group">
+          <input name="RFC" [(ngModel)]="contacto.RFC" placeholder="RFC" class="form-control">
+        </div>
+        <button class="btn btn-success btn-block" (click)="edit ? update() : save()">
+          Guardar
+        </button>
+      </form>
     </div>
+  </div>
 </div>
+        
+
+            <div class="col-md-4">
+  <div class="card card-body text-center">
+  <h3>{{contacto.id_contacto}}. {{contacto.nombre_contacto == '' ? 'nombre' : contacto.nombre_contacto}}</h3>
+    <p>{{contacto.telefono == '' ? 'telefono' : contacto.telefono}}</p>
+     <p>{{contacto.correo == '' ? 'correo' : contacto.correo}}</p>
+      <p>{{contacto.RFC == '' ? 'RFC' : contacto.RFC}}</p>
+  </div>
+</div>
+    </body>
+</html>

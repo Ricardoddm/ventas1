@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import {Sale} from 'src/app/models/sales';
 import{ SalesService }from '../services/sales.service';
-import{Router, ActivatedRoute}from '@angular/router'
+import{Router, ActivatedRoute}from '@angular/router';
 @Component({
   selector: 'app-register-sale',
   templateUrl: './register-sale.component.html',
@@ -22,9 +22,8 @@ export class RegisterSaleComponent implements OnInit {
 
   ngOnInit() {
     const params=this.activedRoute.snapshot.params;
-    if (params.id){
-      this.contactosService.getContacto(params.id)
-      .subscribe(
+    if (params.id_contacto){
+      this.contactosService.getContacto(params.id_contacto).subscribe(
         res=>{
           console.log(res);
           this.contacto=res;
@@ -34,25 +33,26 @@ export class RegisterSaleComponent implements OnInit {
       )
     }
   }
+  
   save(){
     delete this.contacto.id_contacto;
-    this.contactosService.saveContacto(this.contacto)
-      .subscribe(
+    this.contactosService.saveContacto(this.contacto).subscribe(
         res=>{
           console.log(res);
-          this.router.navigate(['/sales'])
+          this.router.navigate(['/sales']);
         },
         err=>console.log(err)
       )
   }
-  /*update(){
-    this.contactosService.updateContacto(this.contacto.id_contacto,this.contacto)
-      .subscribe(
+
+  update(){
+    this.contactosService.updateContacto(this.contacto.id_contacto,this.contacto).subscribe(
         res=>{
+          console.log(res);
           this.router.navigate(['/sales'])
-        },
+        }, 
         err=>console.log(err)
         
       )
-  }*/
+  }
 }
