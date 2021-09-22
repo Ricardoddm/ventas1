@@ -25,7 +25,7 @@ export class ContactsService {
     return this.http.post(`${this.API}/contacts`, contact)
   }
 
-  updateContact(id:string, contact:Contact){
+  updateContact(id: string | number, contact:Contact){
     return this.http.put(`${this.API}/contacts/${id}`, contact)
   }
 
