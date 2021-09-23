@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { ContactsService } from '../services/contacts.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactListComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') classes = 'row';
 
-  ngOnInit(): void {
+  contacts: any = [];
+
+  constructor(private contactsService: ContactsService) { }
+
+  ngOnInit() {
+    this.getContacts();
   }
 
+  getContacts() {
+    this.contactsService.getContacts()
+    .subscribe(
+      res => {
+        this.contacts = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    );
+  }
+  deleteContact(id_contacto: string){
+    this.contactsService.deleteContact(id_contacto)
+    .subscribe(
+      res=>{
+        this.contacts=res;
+        this.getContacts();
+      },
+      err=> console.error(err)
+    );
+  }
 }
