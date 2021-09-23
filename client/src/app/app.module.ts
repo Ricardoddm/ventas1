@@ -22,6 +22,8 @@ import{RegisterSaleComponent}from './register-sale/register-sale.component'
 
   // El bloque de imports es solo para modulos nativos del nucleo de AngularJS
   imports: [
+    //FormModule necesario para usar ngModels
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     // El modulo de Http se debe declarar como import
