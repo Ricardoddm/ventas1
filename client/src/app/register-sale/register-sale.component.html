@@ -1,47 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>Registro de ventas</title>
-    </head>
-    <body>
-    <div class="col-md-4 offset-md-2">
-  <div class="card">
-    <div class="card-body">
-      <form action="">
-        <div class="form-group">
-          <input type="text" name="nombre_contacto" [(ngModel)]="contacto.nombre_contacto" placeholder="nombre" class="form-control" autofocus>
-        </div>
-        <div class="form-group">
-          <input name="telefono" [(ngModel)]="contacto.telefono"  placeholder="telefono" class="form-control">
-        </div>
-        <div class="form-group">
-          <input name="correo" [(ngModel)]="contacto.correo" placeholder="correo" class="form-control">
-        </div>
-        <div class="form-group">
-          <input name="RFC" [(ngModel)]="contacto.RFC" placeholder="RFC" class="form-control">
-        </div>
-        <button class="btn btn-success btn-block" (click)="edit ? update() : save()">
-          Guardar
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
-        
-
-            <div class="col-md-4">
-  <div class="card card-body text-center">
-  <h3>{{contacto.id_contacto}}. {{contacto.nombre_contacto == '' ? 'nombre' : contacto.nombre_contacto}}</h3>
-    <p>{{contacto.telefono == '' ? 'telefono' : contacto.telefono}}</p>
-     <p>{{contacto.correo == '' ? 'correo' : contacto.correo}}</p>
-      <p>{{contacto.RFC == '' ? 'RFC' : contacto.RFC}}</p>
-  </div>
-</div>
-    </body>
-</html>
-=======
 <h1>Añadir Venta</h1>
 <br>
 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
@@ -161,4 +117,3 @@
         </form>    
     </div>
 </div>
->>>>>>> 28bc0c277fc0c63d66bc08e4d44b0243c6c27967
