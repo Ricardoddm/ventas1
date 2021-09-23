@@ -1,12 +1,12 @@
 <h1>Editar Contacto</h1>
 <br>
 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-    <div class="card-body" *ngFor="let contacto of edit">
+    <div class="card-body">
         <form action="">
             <div class="row mb-3 justify-content-center">
                 <label class="col-sm-3 col-form-label">Nombre del contacto: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="nombre_contacto" [value]="contacto.nombre_contacto" [(ngModel)]="contactEdited.nombre_contacto">
+                    <input class="form-control" type="text" name="nombre_contacto" [(ngModel)]="contactEdited.nombre_contacto" autofocus>
                 </div>
 
                 <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
@@ -24,21 +24,21 @@
             <div class="row mb-3 justify-content-center">
                 <label class="col-sm-3 col-form-label">Telefono del contacto: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="telefono" [value]="contacto.telefono" [(ngModel)]="contactEdited.telefono">
+                    <input class="form-control" type="text" name="telefono" [(ngModel)]="contactEdited.telefono">
                 </div>  
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <label class="col-sm-3 col-form-label">Correo del contacto: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="correo" [ngModel]="contacto.correo" [(ngModel)]="contactEdited.correo">
+                    <input class="form-control" type="text" name="correo" [(ngModel)]="contactEdited.correo">
                 </div>  
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <label class="col-sm-3 col-form-label">RFC: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="RFC" [value]="contacto.RFC" [(ngModel)]="contactEdited.RFC">
+                    <input class="form-control" type="text" name="RFC" [(ngModel)]="contactEdited.RFC">
                 </div>  
             </div>
 

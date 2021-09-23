@@ -11,15 +11,15 @@ import{ Router, ActivatedRoute }from '@angular/router';
 export class EditContactComponent implements OnInit {
   @HostBinding('class') classes='row';
 
-  edit: any = [];
-
   contactEdited: Contact={
     id_contacto: 0,
     nombre_contacto :'',
     telefono: '',
     correo: '',
     RFC: ''
-  }
+  };
+
+  edit: boolean = false;
 
   constructor(private contactsService: ContactsService, private router: Router, private activedRoute: ActivatedRoute) { }
 
@@ -28,16 +28,15 @@ export class EditContactComponent implements OnInit {
     this.contactsService.getContact(params.id)
     .subscribe(
       res=>{
-        this.edit = res;
-        console.log(this.edit);
+        this.contactEdited = res;
+        console.log(this.contactEdited);
       },
       err=>console.error(err)
     )
   }
 
   editContact(){
-    const params = this.activedRoute.snapshot.params;
-    this.contactsService.updateContact(params.id, this.contactEdited)
+    this.contactsService.updateContact(this.contactEdited.id_contacto!, this.contactEdited)
       .subscribe(
         res=>{
           console.log(res);
