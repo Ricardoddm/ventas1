@@ -1,50 +1,63 @@
+
 <h1>Añadir Contacto</h1>
 <br>
-<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+<div class="card shadow-lg p-4 mb-5 bg-white rounded">
     <div class="card-body">
-        <form action="">
-            <div class="row mb-3 justify-content-center">
-                <label for="vendedor"> nombre del contacto:  </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
-                </div>  
-                <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
-                <div class="col-sm-8">
-                    <select class="form-select" [(ngModel)]="selected" name="Selected">
-                        <option selected>Selecciona un comprador</option>
-                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
-                        la propiedad 'value'
-                        <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
-                    </select>    
-                    {{selected}}
-                </div>-->
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="comprador">telefono del contacto: </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="productos_y_servicios">correo del contacto: </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="cantidad">RFC: </label>
-                <div class="col-sm-5">
-                    <input class="controls" type="text" name="rfc" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
-                </div>  
-            </div>
-
+        <form action="" class="formulario" id="formulario">
             
-            <div class="col text-center">
-                <button type="submit" class="btn btn-success" (click)="save()">Guardar Contacto</button>
+            <!--Nombre-->
+            <div class="formulario__grupo row mb-3 justify-content-center" id="grupo__nombre_contacto">
+                <label for="nombre_contacto" class="formulario__label row col-sm-2">Nombre contacto</label>
+                <div class="formulario__grupo-input col-sm-8">
+                    <input class="formulario__input" type="text" name="nombre_contacto" [(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingrese un correctamente el nombre del contacto.</p>
             </div>
-        </form>    
+
+            <!--Telefono-->
+            <div class="formulario__grupo row mb-3 justify-content-center" id="grupo__telefono">
+                <label for="telefono" class="formulario__label row col-sm-2">Telefono</label>
+                <div class="formulario__grupo-input col-sm-8">
+                    <input class="formulario__input" type="text" name="telefono" [(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingrese correctamente el numero telefonico.</p>
+            </div>
+
+            <!--Correo-->
+            <div class="formulario__grupo row mb-3 justify-content-center" id="grupo__correo">
+                <label for="correo" class="formulario__label row col-sm-2">Correo</label>
+                <div class="formulario__grupo-input col-sm-8">
+                    <input class="formulario__input" type="email" name="correo"[(ngModel)]="contacto.correo" placeholder="Ingresa el correo del contacto" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingrese correctamente la direccion de correo.</p>
+            </div>
+        
+
+            <!--RFC-->
+            <div class="formulario__grupo  row mb-3 justify-content-center" id="grupo__rfc">
+                <label for="rfc" class="formulario__label row col-sm-2">RFC</label>
+                <div class="formulario__grupo-input col-sm-8">
+                    <input class="formulario__input" type="text" name="rfc" [(ngModel)]="contacto.RFC" placeholder="Ingresa el RFC del contacto" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Ingrese correctamente la RFC.</p>
+            </div>
+
+            <!--Mensaje-->
+            <div clas="form_mensaje">
+                <p class="form_mensaje"><i class="fas fa-exclamation-triangle"></i><b>Error: </b>Por favor rellene correctamente el formulario</p>
+            </div>
+        
+            <!--Boton-->
+            <div class="col text-center">
+                <button type="submit" class="form_btn btn-success" (click)="save()">Guardar Contacto</button>
+                <p class="form_mensaje_exito" id="form_mensaje_exito">Formulario guardado correctamente!</p>
+            </div>
+
+        </form> 
+        <script src="registter-sale/formulario.js"></script>   
     </div>
 </div>
