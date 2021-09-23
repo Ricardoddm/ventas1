@@ -46,7 +46,7 @@ CREATE TABLE `contactos` (
   `nombre_contacto` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
   `correo` varchar(45) NOT NULL,
-  `RFC` varchar(45) NOT NULL
+  `RFC` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -80,7 +80,7 @@ CREATE TABLE `lugares` (
   `pais` varchar(45) NOT NULL,
   `estado` varchar(45) NOT NULL,
   `direccion` varchar(45) NOT NULL,
-  `codigo_postal` varchar(10) NOT NULL
+  `codigo_postal` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='					';
 
 -- --------------------------------------------------------
@@ -109,7 +109,7 @@ CREATE TABLE `vendedores` (
   `nombre_vendedor` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
   `correo` varchar(45) NOT NULL,
-  `RFC` varchar(45) NOT NULL
+  `RFC` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

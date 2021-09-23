@@ -16,4 +16,20 @@ export class ContactsService {
   getContacts(){
     return this.http.get(`${this.API}/contacts`)
   }
+
+  getContact(id:string){
+    return this.http.get(`${this.API}/contacts/${id}`)
+  }
+
+  saveContact(contact:Contact){
+    return this.http.post(`${this.API}/contacts`, contact)
+  }
+
+  updateContact(id: string | number, contact:Contact){
+    return this.http.put(`${this.API}/contacts/${id}`, contact)
+  }
+
+  deleteContact(id:string){
+    return this.http.delete(`${this.API}/contacts/${id}`)
+  }
 }

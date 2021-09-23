@@ -7,11 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SaleListComponent } from './sale-list/sale-list.component';
-import{SalesService} from './services/sales.service'
-import{RegisterSaleComponent}from './register-sale/register-sale.component';
+import { RegisterSaleComponent } from './register-sale/register-sale.component';
+import { RegisterContactComponent } from './register-contact/register-contact.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
-import { RegisterContactComponent } from './register-contact/register-contact.component'
 
 @NgModule({
 
@@ -21,9 +20,9 @@ import { RegisterContactComponent } from './register-contact/register-contact.co
     NavigationComponent,
     SaleListComponent,
     RegisterSaleComponent,
+    RegisterContactComponent,
     ContactListComponent,
     EditContactComponent,
-    RegisterContactComponent
   ],
 
   // El bloque de imports es solo para modulos nativos del nucleo de AngularJS
@@ -33,13 +32,10 @@ import { RegisterContactComponent } from './register-contact/register-contact.co
     BrowserModule,
     AppRoutingModule,
     // El modulo de Http se debe declarar como import
-    HttpClientModule,
-    FormsModule
+    HttpClientModule
   ],
   
-  providers: [
-    SalesService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

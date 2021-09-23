@@ -19,6 +19,7 @@ class ContactsRoutes{
         this.router.post('/', contactsController.createContact);
 
         //Estas rutas indican que se requiere un id o cualquier identificador de la venta 
+        this.router.get('/:id', contactsController.getContact);
         this.router.put('/:id', contactsController.updateContact);
         this.router.delete('/:id', contactsController.deleteContact);
     }

@@ -9,12 +9,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
+
         <li class="nav-item active">
           <a class="nav-link" routerLink="/sales" routerLinkActive="active"><i class="fa fa-id-badge"></i> Ventas</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" routerLink="/register-sale" routerLinkActive="active"><i class="fas fa-plus-circle"></i> Añadir venta</a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="contactsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Contactos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="contactsDropdown">
+            <li><a class="dropdown-item" routerLink="/register-contact" routerLinkActive="active">Añadir contacto</a></li>
+            <li><a class="dropdown-item" routerLink="/contacts" routerLinkActive="active">Listar contactos</a></li>
+          </ul>
+        </li>
+        
       </ul>
     </div>
   </div>
