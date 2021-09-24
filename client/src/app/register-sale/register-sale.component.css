@@ -37,20 +37,6 @@
          font-size: 18px;
     }
 
-<<<<<<< HEAD
-.form-register-ventas .botons{
-    text-align: center;
-    width: 25%;
-    background: rgb(100, 197, 100);
-    border: 1px;
-    margin: 5;
-    font-size: 18px;
-    font-family: 'Arial';
-    padding: 7px;
-    margin: 7px;
-}
-
-=======
     .form-control{
         width: 100%;
         background:white;
@@ -74,4 +60,3 @@
         margin: 7px;
     }
     
->>>>>>> Pablo
