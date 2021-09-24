@@ -8,6 +8,8 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const indexroutes_1 = __importDefault(require("./routes/indexroutes"));
 const salesroutes_1 = __importDefault(require("./routes/salesroutes"));
+const contactsroutes_1 = __importDefault(require("./routes/contactsroutes"));
+const buyersroutes_1 = __importDefault(require("./routes/buyersroutes"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -24,6 +26,8 @@ class Server {
     routes() {
         this.app.use('/', indexroutes_1.default);
         this.app.use('/api/sales', salesroutes_1.default);
+        this.app.use('/api/contacts', contactsroutes_1.default);
+        this.app.use('/api/buyers', buyersroutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

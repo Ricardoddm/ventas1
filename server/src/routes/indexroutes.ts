@@ -1,7 +1,7 @@
   
 import {Router} from 'express';
 import {indexController } from '../controllers/indexcontroller';
-class DataRoutes{
+class IndexRoutes{
     public router: Router= Router();
     constructor(){
         this.config();
