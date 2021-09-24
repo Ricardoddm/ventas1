@@ -1,12 +1,15 @@
-<h1>Añadir Contacto</h1>
+<h1>Añadir Venta</h1>
 <br>
 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card-body">
         <form action="">
+            <!--BLOQUE DEL COMPRADOR-->
+            <h2>Información del comprador</h2>
+            <br>
             <div class="row mb-3 justify-content-center">
-                <label for="vendedor"> nombre del contacto:  </label>
+                <label for="inputNombreEmpresa/Org" class="col-sm-3 col-form-label">Empresa/Organización</label>
                 <div class="col-sm-5">
-                    <input class="controls" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
+                    <input type="text" class="form-control" id="idempresa" placeholder="Nombre de la empresa u organización">
                 </div>  
                 <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
                 <div class="col-sm-8">
@@ -21,30 +24,96 @@
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <label for="comprador">telefono del contacto: </label>
+                <label for="inputRepresentante" class="col-sm-3 col-form-label">Representante</label>
                 <div class="col-sm-5">
-                    <input class="controls" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
+                    <input type="text" class="form-control" id="idrepresentante" placeholder="Nombre del representante de la empresa u organización">
                 </div>  
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <label for="productos_y_servicios">correo del contacto: </label>
+                <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección</label>
                 <div class="col-sm-5">
-                    <input class="controls" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
+                    <textarea class="form-control" id="inputDireccion" rows="3"></textarea>
                 </div>  
             </div>
 
             <div class="row mb-3 justify-content-center">
-                <label for="cantidad">RFC: </label>
+                <label for="inputPais" class="col-sm-3 col-form-label">Pais</label>
                 <div class="col-sm-5">
-                    <input class="controls" type="text" name="RFC" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
+                    <select class="form-select" aria-label="selectProducto">
+                        <option selected>Selecciona un pais</option>
+                        <option value="1">Juanito</option>
+                    </select>
                 </div>  
             </div>
 
+            <div class="row mb-3 justify-content-center">
+                <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectProducto">
+                        <option selected>Selecciona un estado</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
+            </div>
             
-            <div class="col text-center">
-                <button type="submit" class="btn btn-success" (click)="save()">Guardar Contacto</button>
+            <div class="row mb-3 justify-content-center">
+                <label for="inputRFC" class="col-sm-3 col-form-label">RFC</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idrfc" placeholder="RFC ligado a la empresa u organización">
+                </div>  
             </div>
+            <!--BLOQUE DEL COMPRADOR-->
+            <!--BLOQUE DE LA VENTA-->
+            <h2>Información de la venta</h2>
+            <br>
+            <div class="row mb-3 justify-content-center">
+                <label for="inputVendedor" class="col-sm-3 col-form-label">Vendedor</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectVendedor">
+                        <option selected>Selecciona un vendedor</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
+            </div>
+        
+            <div class="row mb-3 justify-content-center">
+                <label for="inputProducto" class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectProducto">
+                        <option selected>Selecciona un producto</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
+            </div>
+        
+            <div class="row mb-3 justify-content-center">
+                <label for="inputCantidad" class="col-sm-3 col-form-label">Cantidad</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idCantidad">
+                </div>  
+            </div>
+        
+            <div class="row mb-3 justify-content-center">
+                <label for="inputSubtotal" class="col-sm-1 col-form-label">Subtotal</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="idSubtotal">
+                </div>  
+            
+                <label for="inputIVA" class="col-sm-1 col-form-label">IVA</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="idIVA">
+                </div> 
+        
+                <label for="inputTotal" class="col-sm-1 col-form-label">Total</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="idTotal">
+                </div>  
+            </div>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-success">Guardar Venta</button>
+            </div>
+            <!--BLOQUE DEL COMPRADOR-->
         </form>    
     </div>
 </div>

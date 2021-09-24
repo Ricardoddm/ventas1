@@ -16,16 +16,16 @@ export class SalesService {
   getContactos(){
     return this.http.get(`${this.API_URI}/sales`);
   }
-  getContacto(id:string){
-    return this.http.get(`${this.API_URI}/sales/${id}`)
+  getContacto(id_contacto:number|string){
+    return this.http.get(`${this.API_URI}/sales/${id_contacto}`)
   }
-  deleteContacto(id:string){
-    return this.http.delete(`${this.API_URI}/sales/${id}`)
+  deleteContacto(id_contacto:number|string){
+    return this.http.delete(`${this.API_URI}/sales/${id_contacto}`)
   }
   saveContacto(contacto:Sale){
     return this.http.post(`${this.API_URI}/sales`, contacto)
   }
-  updateContacto(id: string|number, updated:Sale): Observable<Sale>{
-    return this.http.put(`${this.API_URI}/sales/${id}`,updated)
+  updateContacto(id_contacto:number|any,update:Sale): Observable<Sale>{
+    return this.http.put(`${this.API_URI}/sales/${id_contacto}`,update)
   }
 }
