@@ -2,8 +2,8 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-    nombre_contacto: /^[a-zA-ZÀ-ÿ\s]$/, // Letras y espacios, pueden llevar acentos.
-    telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+    nombre_contacto: /^\D[a-zA-ZÀ-ÿ\s]$/, // Letras y espacios, pueden llevar acentos.
+    telefono: /d\W{7,14}$/, // 7 a 14 numeros.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     RFC: /^[A-Z0-9]{13}$/ // Letras y numeros.
 }

@@ -5,7 +5,7 @@ import{ Router, ActivatedRoute }from '@angular/router';
 
 @Component({
   selector: 'app-register-contact',
-  templateUrl: './register-contact.component.html',
+  templateUrl: './register-contact.component.html', 
   styleUrls: ['./register-contact.component.css']
 })
 export class RegisterContactComponent implements OnInit {
@@ -17,7 +17,7 @@ export class RegisterContactComponent implements OnInit {
     telefono: '',
     correo: '',
     RFC: ''
-  };
+  };  
   edit: boolean=false;
 
   constructor(private contactsService: ContactsService, private router: Router, private activedRoute: ActivatedRoute) { }
@@ -35,5 +35,5 @@ export class RegisterContactComponent implements OnInit {
         err=>console.log(err)
       )
   }
-
+  
 }
