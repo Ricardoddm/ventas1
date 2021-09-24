@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { SalesService } from '../services/sales.service';
+import { variable } from '@angular/compiler/src/output/output_ast';
 //import {Sale} from 'src/app/models/sales'
 
 
@@ -39,5 +40,3 @@ export class SaleListComponent implements OnInit {
     console.log(id_contacto);
   }
 }
-
-
