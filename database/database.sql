@@ -16,6 +16,7 @@ CREATE TABLE lugares(
     estado VARCHAR(50) NOT NULL,
     id_direccion INT(10) NOT NULL,
     CONSTRAINT fk_direccion FOREIGN KEY(id_direccion) REFERENCES direcciones(id_direccion)
+<<<<<<< HEAD
 );
 
 CREATE TABLE direcciones(
@@ -25,6 +26,17 @@ CREATE TABLE direcciones(
     codigo_postal INT(5) NOT NULL
 );
 
+=======
+);
+
+CREATE TABLE direcciones(
+    id_direccion INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    direccion VARCHAR(70) NOT NULL,
+    colonia VARCHAR(40) NOT NULL,
+    codigo_postal INT(5) NOT NULL
+);
+
+>>>>>>> Pablo
 CREATE TABLE compradores(
 	id_comprador INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     empresa_comprador VARCHAR(70) NOT NULL,
@@ -73,9 +85,28 @@ CREATE TABLE detalle_ventas(
     total DECIMAL(7,2)NOT NULL,
     CONSTRAINT fk_venta FOREIGN KEY(id_venta) REFERENCES ventas(id_venta)
 );
+<<<<<<< HEAD
 
 CREATE TABLE facturas(
   id_factura INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   id_detalle_venta INT(10),
   CONSTRAINT fk_detalle_venta FOREIGN KEY(id_detalle_venta) REFERENCES detalle_ventas(id_detalle_venta)
 );  
+=======
+
+CREATE TABLE facturas(
+  id_factura INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_detalle_venta INT(10),
+  CONSTRAINT fk_detalle_venta FOREIGN KEY(id_detalle_venta) REFERENCES detalle_ventas(id_detalle_venta)
+);
+
+
+/*INSERT INTO contactos (nombre_contacto, telefono, email, rfc) 
+VALUES ('Antonio Aguilera', '4492918634', 'anto@gmail.com', 'AUMA310898FRT');
+
+INSERT INTO lugares (id_lugar, pais, estado, direccion, cp) 
+VALUES (2, 'México', 'Aguascalientes', 'Av. Arqueros 455', '20660');
+
+INSERT INTO compradores (id_comprador, empresa_comprador, id_contacto, id_lugar, rfc)
+VALUES (1,'Investel', '2', '1', 'AFTYG987');*/
+>>>>>>> Pablo
