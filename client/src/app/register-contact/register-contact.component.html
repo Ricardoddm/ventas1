@@ -28,7 +28,7 @@
             <div class="formulario__grupo row mb-3 justify-content-center" id="grupo__correo">
                 <label for="correo" class="formulario__label row col-sm-2">Correo</label>
                 <div class="formulario__grupo-input col-sm-8">
-                    <input class="formulario__input" type="email" name="correo"[(ngModel)]="contacto.email" placeholder="Ingresa el correo del contacto" required>
+                    <input class="formulario__input" type="email" name="correo"[(ngModel)]="contacto.correo" placeholder="Ingresa el correo del contacto" required>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Ingrese correctamente la direccion de correo.</p>
@@ -39,7 +39,7 @@
             <div class="formulario__grupo  row mb-3 justify-content-center" id="grupo__rfc">
                 <label for="rfc" class="formulario__label row col-sm-2">RFC</label>
                 <div class="formulario__grupo-input col-sm-8">
-                    <input class="formulario__input" type="text" name="rfc" [(ngModel)]="contacto.rfc" placeholder="Ingresa el RFC del contacto" required>
+                    <input class="formulario__input" type="text" name="RFC" [(ngModel)]="contacto.RFC" placeholder="Ingresa el RFC del contacto" required>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Ingrese correctamente la RFC.</p>
