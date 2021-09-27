@@ -1,81 +1,119 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <title>Registro de ventas</title>
-    </head>
-    <body>
-       <form method="POST">
-        <h2 class="headertekst">Registro de ventas</h2>
+<h1>Añadir Venta</h1>
+<br>
+<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card-body">
+        <form action="">
+            <!--BLOQUE DEL COMPRADOR-->
+            <h2>Información del comprador</h2>
+            <br>
+            <div class="row mb-3 justify-content-center">
+                <label for="inputNombreEmpresa/Org" class="col-sm-3 col-form-label">Empresa/Organización</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idempresa" placeholder="Nombre de la empresa u organización">
+                </div>  
+                <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
+                <div class="col-sm-8">
+                    <select class="form-select" [(ngModel)]="selected" name="Selected">
+                        <option selected>Selecciona un comprador</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
+                    </select>    
+                    {{selected}}
+                </div>-->
+            </div>
 
             <div class="row mb-3 justify-content-center">
-                <label for="comprador">telefono del contacto: </label>
+                <label for="inputRepresentante" class="col-sm-3 col-form-label">Representante</label>
                 <div class="col-sm-5">
-                    <input class="controls" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
+                    <input type="text" class="form-control" id="idrepresentante" placeholder="Nombre del representante de la empresa u organización">
                 </div>  
             </div>
-            <h4>Nueva venta</h4>
-            <hr>
-            
-            <div class="form-group">
-                <label for="vendedor" class="form-label mt-4">Vendedor: </label>
-                <select class="controls" id="vendedor" required >
-                  <option placeholder="Ingresa el nombre del vendedor">Selecciona al vendedor</option>
-                  <option value="1">Vendedor 1</option>
-                  <option value="2">Vendedor 2</option>
-                  <option value="3">Vendedor 3</option>
-                  <option value="4">Vendedor 4</option>
-                  <option value="5">Vendedor 5</option>
-                </select>
-              </div>
-            
-            <div class="form-group">
-                <label for="comprador" class="form-label mt-4">Comprador: </label>
-                <select class="controls" id="comprador" required>
-                  <option placeholder="Selecciona al comprador">Selecciona al comprador</option>
-                  <option value="1">Comprador 1</option>
-                  <option value="2">Comprador 2</option>
-                  <option value="3">Comprador 3</option>
-                  <option value="4">Comprador 4</option>
-                  <option value="5">Comprador 5</option>
-                </select>
-              </div>
-            
-            <div class="form-group">
-                <label for="productos" class="form-label mt-4">Productos: </label>
-                <select class="controls" id="productos" required>
-                  <option placeholder="Selecciona el producto">Selecciona al producto</option>
-                  <option value="1">Internet</option>
-                  <option value="2">Reparaciones</option>
-                  <option value="3">Consultoria</option>
-                  <option value="4">Creación de software a la medida</option>
-                  <option value="5">Otros</option>
-                </select>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" id="inputDireccion" rows="3"></textarea>
+                </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="inputPais" class="col-sm-3 col-form-label">Pais</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectProducto">
+                        <option selected>Selecciona un pais</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectProducto">
+                        <option selected>Selecciona un estado</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
             </div>
             
-            <div class="row mb-1 justify-content-center">
-                <label for="cantidad" class="col-sm-1 col-form-label">Cantidad</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="cantidad" required>
-                </div> 
-                <label for="subtotal" class="col-sm-1 col-form-label">Subtotal</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="subtotal" required>
+            <div class="row mb-3 justify-content-center">
+                <label for="inputRFC" class="col-sm-3 col-form-label">RFC</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idrfc" placeholder="RFC ligado a la empresa u organización">
                 </div>  
-            
-                <label for="iva" class="col-sm-1 col-form-label">IVA</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="iva" required>
-                </div> 
+            </div>
+            <!--BLOQUE DEL COMPRADOR-->
+            <!--BLOQUE DE LA VENTA-->
+            <h2>Información de la venta</h2>
+            <br>
+            <div class="row mb-3 justify-content-center">
+                <label for="inputVendedor" class="col-sm-3 col-form-label">Vendedor</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectVendedor">
+                        <option selected>Selecciona un vendedor</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
             </div>
         
-            <label for="total" class="col-sm-1 col-form-label">Total</label>
-            <div class="col-sm-2">
-                <input type="text" class="form-control" id="total" required>
-            </div>  
-            <hr>
-            <input class="botons" type="submit" value="Registar venta">
+            <div class="row mb-3 justify-content-center">
+                <label for="inputProducto" class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectProducto">
+                        <option selected>Selecciona un producto</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
+            </div>
+        
+            <div class="row mb-3 justify-content-center">
+                <label for="inputCantidad" class="col-sm-3 col-form-label">Cantidad</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idCantidad">
+                </div>  
+            </div>
+        
+            <div class="row mb-3 justify-content-center">
+                <label for="inputSubtotal" class="col-sm-1 col-form-label">Subtotal</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="idSubtotal">
+                </div>  
             
-       </form>
-    </body>
-</html>
+                <label for="inputIVA" class="col-sm-1 col-form-label">IVA</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="idIVA">
+                </div> 
+        
+                <label for="inputTotal" class="col-sm-1 col-form-label">Total</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="idTotal">
+                </div>  
+            </div>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-success">Guardar Venta</button>
+            </div>
+            <!--BLOQUE DEL COMPRADOR-->
+        </form>    
+    </div>
+</div>

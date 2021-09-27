@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import db from'../database';
 
-class ProductsController{
+class VendorsController{
     public async listBuyers(req: Request, res: Response ){
 
         //La consulta se ejecuta solo con un SELECT hacia la tabla que se requiera enlistar
@@ -42,6 +42,6 @@ class ProductsController{
     }
 }
 
-const productsController = new ProductsController();
+const vendorsController = new VendorsController();
 
-export default productsController;
+export default vendorsController;
