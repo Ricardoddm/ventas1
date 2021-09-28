@@ -43,14 +43,31 @@ CREATE TABLE vendedores (
     rfc_vendedor VARCHAR(13) NOT NULL
 );
 
+CREATE TABLE consorcios(
+    id_consorcio INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre_consorcio VARCHAR(40)
+);
+
+CREATE TABLE empresas(
+    id_empresa INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nnombre_empresa VARCHAR(70) NOT NULL,
+    telefono INT(10),
+    correo INT(10),
+    descripcion TEXT,
+    rfc VARCHAR(13) NOT NULL,
+    id_consorcio INT(10),
+    CONSTRAINT fk_id_consorcio FOREIGN KEY(id_consorcio) REFERENCES consorcios(id_consorcio)
+);
+
 CREATE TABLE productos(
     id_producto INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre_producto VARCHAR(40) NOT NULL,
     descripcion TEXT NOT NULL,
     precio_unitario DECIMAL(7,2) NOT NULL,
-    existencia INT(7) NOT NULL,
+    stock INT(7) NOT NULL,
     garantia INT(7) NOT NULL,
-    categoria VARCHAR(30) NOT NULL
+    id_empresa INT(10),
+    CONSTRAINT fk_id_empresa FOREIGN KEY(id_empresa) REFERENCES empresas(id_empresa)
 );
 
 CREATE TABLE ventas(
@@ -58,26 +75,16 @@ CREATE TABLE ventas(
     fecha timestamp NOT NULL DEFAULT current_timestamp,
     id_comprador INT(10),
     id_vendedor INT(10),
-    id_producto INT(10),
+    id_consorcio INT(10),
     CONSTRAINT fk_comprador FOREIGN KEY(id_comprador) REFERENCES compradores(id_comprador),
     CONSTRAINT fk_vendedor FOREIGN KEY(id_vendedor) REFERENCES vendedores(id_vendedor), 
-    CONSTRAINT fk_producto FOREIGN KEY(id_producto) REFERENCES productos(id_producto)
-);
-
-CREATE TABLE detalle_ventas(
-    id_detalle_venta INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_venta INT(10),
-    cantidad INT(5) NOT NULL,
-    subtotal DECIMAL(7,2) NOT NULL,
-    IVA DECIMAL(7,2) NOT NULL,
-    total DECIMAL(7,2)NOT NULL,
-    CONSTRAINT fk_venta FOREIGN KEY(id_venta) REFERENCES ventas(id_venta)
+    CONSTRAINT fk_id_consorcio FOREIGN KEY(id_consorcio) REFERENCES consorcios(id_consorcio)
 );
 
 CREATE TABLE facturas(
   id_factura INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  id_detalle_venta INT(10),
-  CONSTRAINT fk_detalle_venta FOREIGN KEY(id_detalle_venta) REFERENCES detalle_ventas(id_detalle_venta)
+  id_venta INT(10),
+  CONSTRAINT fk_venta FOREIGN KEY(id_venta) REFERENCES ventas(id_venta)
 );
 
 
