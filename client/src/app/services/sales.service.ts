@@ -16,4 +16,8 @@ export class SalesService {
   getSales(){
     return this.http.get(`${this.API}/sales`)
   }
+
+  getConsortiums(){
+    return this.http.get(`${this.API}/sales/consortium`)
+  }
 }

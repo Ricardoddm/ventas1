@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { ContactsService } from '../services/contacts.service';
+import { SalesService } from '../services/sales.service';
 
 @Component({
   selector: 'app-register-sale',
@@ -10,24 +10,37 @@ export class RegisterSaleComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
-  contacts: any = [];
+  sales: any = [];
+  consortiums: any = [];
   selected: string = '';
 
-  constructor(private salesService: ContactsService) { }
+  constructor(private salesService: SalesService) { }
 
   ngOnInit() {
-    this.getContacts();
+    this.getSales();
+    this.getConsortiums();
   }
 
-  getContacts() {
-    this.salesService.getContacts()
+  getSales() {
+    this.salesService.getSales()
     .subscribe(
       res => {
-        this.contacts = res;
+        this.sales = res;
         console.log(res);
       },
       err => console.error(err)
     );
+  }
+
+  getConsortiums() {
+    this.salesService.getConsortiums()
+    .subscribe(
+      res => {
+        this.consortiums = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    )
   }
 
 }
