@@ -40,6 +40,19 @@ class SalesController{
         await db.query('DELETE FROM contacto WHERE id_contacto = ?', [id]);
         res.json({text:'Se ha eliminado una venta'});
     }
+
+    public async listConsortium(req: Request, res: Response){
+        const consortium = await db.query('SELECT * FROM consorcios');
+        console.log(consortium);
+        res.json(consortium);
+    }
+
+    public async listEnterprise(req: Request, res: Response){
+        const { id } = req.params;
+
+        const enterprises = await db.query('SELECT e.nombre_empresa, c.nombre_consorcio FROM empresas e LEFT JOIN consorcios c ON e.id_consorcio = c.id_consorcio WHERE e.id_empresa = ?', [id]);
+        res.json(enterprises);
+    }
 }
 
 const salesController = new SalesController();

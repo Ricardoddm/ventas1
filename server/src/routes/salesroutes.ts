@@ -17,6 +17,7 @@ class SalesRoutes{
         //Indica las rutas validas según el metodo programado en el controlador salesroutes.ts 
         this.router.get('/', salesController.listSales);
         this.router.post('/', salesController.createSale);
+        this.router.get('/consortium', salesController.listConsortium);
 
         //Estas rutas indican que se requiere un id o cualquier identificador de la venta 
         this.router.put('/:id', salesController.updateSale);
