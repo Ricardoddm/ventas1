@@ -22,6 +22,8 @@ class SalesRoutes{
         //Estas rutas indican que se requiere un id o cualquier identificador de la venta 
         this.router.put('/:id', salesController.updateSale);
         this.router.delete('/:id', salesController.deleteSale);
+        this.router.get('/enterprise/:id', salesController.listEnterprise);
+        this.router.get('/product/:id', salesController.listProducts);
     }
 }
 const salesRoutes = new SalesRoutes();
