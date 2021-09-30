@@ -32,4 +32,8 @@ export class ContactsService {
   deleteContact(id:string){
     return this.http.delete(`${this.API}/contacts/${id}`)
   }
+  
+  getConsortiums(){
+    return this.http.get(`${this.API}/sales/consortium`)
+  }
 }
