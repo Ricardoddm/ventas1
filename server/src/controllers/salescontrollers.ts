@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import db from'../database';
 
 class SalesController{
+    // Metodo que enlista todas las ventas que se tienen guardadas en la tabla de ventas
     public async listSales(req: Request, res: Response ){
 
         //La consulta se ejecuta solo con un SELECT hacia la tabla que se requiera enlistar
@@ -10,7 +11,9 @@ class SalesController{
         res.json(sales);
     }
 
+    // Metodo que genera un registro en la tabla de ventas
     public async createSale(req: Request, res: Response){
+        
         //Se muestra el cuerpo del request JSON
         console.log(req.body);
 
@@ -19,6 +22,7 @@ class SalesController{
         res.json(sales);
     }
 
+    // Metodo que actualiza los campos de un registro mediante su id en la tabla de ventas
     public async updateSale(req: Request, res: Response){
         const { id } = req.params;
         const saleInfo = req.body;
@@ -31,6 +35,7 @@ class SalesController{
         res.json({message: "Se actualizo una venta existente"});
     }
 
+    // Metodo para eliminar un registro completo de la tabla de ventas
     public async deleteSale(req: Request, res: Response){
 
         //En este metodo solo necesitamos el id de la venta o cualquier cosa que querramos eliminar
@@ -41,17 +46,26 @@ class SalesController{
         res.json({text:'Se ha eliminado una venta'});
     }
 
+    // Metodo que enlista todos los consorcios registrados en la tabla de consorcios
     public async listConsortium(req: Request, res: Response){
         const consortium = await db.query('SELECT * FROM consorcios');
         console.log(consortium);
         res.json(consortium);
     }
 
+    // Metodo que realiza un LEFT JOIN para obtener las empresas ligadas al consorcio que el usuario selecciono
     public async listEnterprise(req: Request, res: Response){
         const { id } = req.params;
 
-        const enterprises = await db.query('SELECT e.nombre_empresa, c.nombre_consorcio FROM empresas e LEFT JOIN consorcios c ON e.id_consorcio = c.id_consorcio WHERE e.id_empresa = ?', [id]);
+        const enterprises = await db.query('SELECT e.id_empresa, e.nombre_empresa FROM empresas e LEFT JOIN consorcios c ON e.id_consorcio = c.id_consorcio WHERE e.id_consorcio = ?', [id]);
         res.json(enterprises);
+    }
+
+    public async listProducts(req: Request, res: Response){
+        const { id } = req.params;
+
+        const products = await db.query('SELECT p.nombre_producto FROM productos p LEFT JOIN empresas e ON p.id_empresa = e.id_empresa WHERE e.id_empresa = ?', [id]);
+        res.json(products); 
     }
 }
 

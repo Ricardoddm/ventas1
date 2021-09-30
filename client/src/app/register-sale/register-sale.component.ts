@@ -12,7 +12,12 @@ export class RegisterSaleComponent implements OnInit {
 
   sales: any = [];
   consortiums: any = [];
-  selected: string = '';
+  enterprises: any = [];
+  products: any = [];
+
+  selectedConsort: string = '';
+  selectedEnter: string = '';
+  newValue: string = '';
 
   constructor(private salesService: SalesService) { }
 
@@ -37,6 +42,30 @@ export class RegisterSaleComponent implements OnInit {
     .subscribe(
       res => {
         this.consortiums = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    )
+  }
+
+  getEnterprises(newValue: string){
+    console.log(newValue);
+    this.salesService.getEnterprises(newValue)
+    .subscribe(
+      res => {
+        this.enterprises = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    )
+  }
+
+  getProducts(newValue: string){
+    console.log(newValue);
+    this.salesService.getProducts(newValue)
+    .subscribe(
+      res => {
+        this.products = res;
         console.log(res);
       },
       err => console.error(err)

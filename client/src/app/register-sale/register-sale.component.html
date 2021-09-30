@@ -28,7 +28,8 @@
             <div class="row mb-3 justify-content-center">
                 <label for="inputComprador" class="col-sm-3 col-form-label">Consorcio</label>
                     <div class="col-sm-5">
-                        <select class="form-select" [(ngModel)]="selected" name="Selected">
+                        <select class="form-select" [(ngModel)]="selectedConsort" (ngModelChange)="getEnterprises($event)" name="Selected">
+                            <option value="" disabled selected>Selecciona un consorcio</option>
                             Para obtener el id del contacto que se selecciono de la lista se debe añadir
                             la propiedad 'value'
                             <option selected [value] ="consortium.id_consorcio" *ngFor="let consortium of consortiums">{{consortium.nombre_consorcio}}</option>
@@ -39,9 +40,11 @@
             <div class="row mb-3 justify-content-center">
                 <label for="inputEmpresa" class="col-sm-3 col-form-label">Empresa</label>
                 <div class="col-sm-5">
-                    <select class="form-select" aria-label="selectProducto">
-                        <option selected>Selecciona una empresa</option>
-                        <option value="1">LinkThink</option>
+                    <select class="form-select" [(ngModel)]="selectedEnter" (ngModelChange)="getProducts($event)" name="Selected">
+                        <option value="" disabled selected>Selecciona una empresa</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option selected [value] ="enterprise.id_empresa" *ngFor="let enterprise of enterprises">{{enterprise.nombre_empresa}}</option>
                     </select>
                 </div>  
             </div>
@@ -49,9 +52,11 @@
             <div class="row mb-3 justify-content-center">
                 <label for="inputProducto" class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-5">
-                    <select class="form-select" aria-label="selectProducto">
-                        <option selected>Selecciona un producto</option>
-                        <option value="1">Juanito</option>
+                    <select class="form-select" name="Selected">
+                        <option value="" disabled selected>Selecciona un producto</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option selected [value] ="product.id_producto" *ngFor="let product of products">{{product.nombre_producto}}</option>
                     </select>
                 </div>  
             </div>

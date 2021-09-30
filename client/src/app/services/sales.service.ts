@@ -20,4 +20,12 @@ export class SalesService {
   getConsortiums(){
     return this.http.get(`${this.API}/sales/consortium`)
   }
+
+  getEnterprises(id: string ){
+    return this.http.get(`${this.API}/sales/enterprise/${id}`)
+  }
+
+  getProducts(id: string){
+    return this.http.get(`${this.API}/sales/product/${id}`)
+  }
 }
