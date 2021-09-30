@@ -180,7 +180,7 @@ CREATE TABLE `productos` (
   `descripcion` text NOT NULL,
   `precio_unitario` varchar(45) NOT NULL,
   `stock` varchar(45) NOT NULL,
-  `garantia` varchar(45) NOT NULL,
+  `garantia` varchar(45) NOT NULL, 
   `id_empresa` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
