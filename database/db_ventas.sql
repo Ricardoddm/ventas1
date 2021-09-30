@@ -134,6 +134,7 @@ CREATE TABLE `empresas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `empresas` (`id_empresa`, `nombre_empresa`, `descripcion`, `telefono`, `correo`,`RFC`,`id_consorcio`) VALUES
+
 (1, 'Nuevared', 'Especializada en servicios de internet de alta velocidad', '449 352 4965', 'contacto@nuevared.mx', '1234', 1),
 (2, 'Codecenter', 'Especializada en servicios de internet de alta velocidad', '449-919-8289', 'proyectosespeciales@codecenter.mx', '1234', 1),
 (3, 'Fibrared', '- Especializada en instalación de fibra óptica y servicios de red local', '1234', '1234@correo.com', '1234', 1),
@@ -178,11 +179,14 @@ CREATE TABLE `productos` (
   `id_producto` int(10) NOT NULL,
   `nombre_producto` varchar(45) NOT NULL,
   `descripcion` text NOT NULL,
-  `precio_unitario` varchar(45) NOT NULL,
+  `precio_unitario_privado` varchar(45) NOT NULL,
+  `precio_unitario_empresarial` varchar(45) NOT NULL,
   `stock` varchar(45) NOT NULL,
   `garantia` varchar(45) NOT NULL, 
   `id_empresa` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 
 -- --------------------------------------------------------
 
@@ -191,7 +195,7 @@ CREATE TABLE `productos` (
 --
 
 CREATE TABLE `vendedores` (
-  `id_vendedor` int(11) NOT NULL,
+  `id_vendedor` int(10) NOT NULL,
   `nombre_vendedor` varchar(45) NOT NULL,
   `telefono` int(10) NOT NULL,
   `correo` varchar(45) NOT NULL,
