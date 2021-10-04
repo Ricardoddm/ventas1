@@ -199,7 +199,7 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion`, `preci
 (9, 'Paneles solares Paq. 3 10 paneles', 'Instacion de 2 paneles solares', '1500', 'existente', 'si', 0, 2),
 (10, 'Paneles solares Paq. 4 50 paneles', 'Instacion de 2 paneles solares', '1500', 'existente', 'si', 0, 2),
 (11, 'Silla de oficina', 'Silla de ofina', '2000', 'existente', 'si', 0, 3),
-(11, 'Silla ergonomica', 'Silla ergonomica', '3500', 'existente', 'si', 0, 3);
+(12, 'Silla ergonomica', 'Silla ergonomica', '3500', 'existente', 'si', 0, 3);
 
 
 
