@@ -183,22 +183,24 @@ CREATE TABLE `productos` (
   `precio_unitario_empresarial` varchar(45),
   `stock` varchar(45) NOT NULL,
   `garantia` varchar(45) NOT NULL, 
+  `servicio` TINYINT(1) NOT NULL, 
   `id_empresa` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion`, `precio_unitario_privado`, `precio_unitario_empresarial`, `stock`, `garantia`,`id_empresa`) VALUES
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `descripcion`, `precio_unitario`, `stock`, `garantia`, `servicio`, `id_empresa`) VALUES
 
-(1, 'Internet Paq.1 Zona 100', 'Internet de 100mbps', '500', '0', 'existente', 'si', 1),
-(2, 'Internet Paq.2 Zona 500', 'Internet de 500mbps', '750', '0', 'existente', 'si', 1),
-(3, 'Internet Paq.3 Zona 1000', 'Internet de 1000mbps', '1000', '0', 'existente', 'si', 1),
-(4, 'Internet Paq.4 Zona 100', 'Internet de 100mbps', '0', '1500', 'existente', 'si', 1),
-(5, 'Internet Paq.5 Zona 500', 'Internet de 500mbps', '0', '2500', 'existente', 'si', 1),
-(6, 'Internet Paq.6 Zona 1000', 'Internet de 1000mbps', '0', '3500', 'existente', 'si', 1),
-(7, 'Paneles solares Paq. 1 2 paneles', 'Instacion de 2 paneles solares', '1500', '0', 'existente', 'si', 2),
-(8, 'Paneles solares Paq. 2 5 paneles', 'Instacion de 2 paneles solares', '1500', '0', 'existente', 'si', 2),
-(9, 'Paneles solares Paq. 3 10 paneles', 'Instacion de 2 paneles solares', '1500', '0', 'existente', 'si', 2),
-(10, 'Paneles solares Paq. 4 50 paneles', 'Instacion de 2 paneles solares', '1500', '0', 'existente', 'si', 2),
-(11, 'Silla de oficina', 'Silla de ofina ergonomica', '2000', '0', 'existente', 'si', 3);
+(1, 'Internet Paq.1 Privado Zona 100', 'Internet de 100mbps', '500', 'existente', 'si', 1, 1),
+(2, 'Internet Paq.2 Privado Zona 500', 'Internet de 500mbps', '750', 'existente', 'si', 1, 1),
+(3, 'Internet Paq.3 Privado Zona 1000', 'Internet de 1000mbps', '1000', 'existente', 'si', 1, 1),
+(4, 'Internet Paq.4 Empresarial Zona 100', 'Internet de 100mbps', '1500', 'existente', 'si', 1, 1),
+(5, 'Internet Paq.5 Empresarial Zona 500', 'Internet de 500mbps', '2500', 'existente', 'si', 1, 1),
+(6, 'Internet Paq.6 Empresarial Zona 1000', 'Internet de 1000mbps',  '3500', 'existente', 'si', 1, 1),
+(7, 'Paneles solares Paq. 1 2 paneles', 'Instacion de 2 paneles solares', '1500', 'existente', 'si', 0, 2),
+(8, 'Paneles solares Paq. 2 5 paneles', 'Instacion de 2 paneles solares', '1500', 'existente', 'si', 0, 2),
+(9, 'Paneles solares Paq. 3 10 paneles', 'Instacion de 2 paneles solares', '1500', 'existente', 'si', 0, 2),
+(10, 'Paneles solares Paq. 4 50 paneles', 'Instacion de 2 paneles solares', '1500', 'existente', 'si', 0, 2),
+(11, 'Silla de oficina', 'Silla de ofina', '2000', 'existente', 'si', 0, 3),
+(11, 'Silla ergonomica', 'Silla ergonomica', '3500', 'existente', 'si', 0, 3);
 
 
 
