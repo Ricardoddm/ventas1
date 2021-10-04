@@ -1,0 +1,51 @@
+<h1>Editar Vendedor</h1>
+<br>
+<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="card-body">
+        <form action="">
+            <div class="row mb-3 justify-content-center">
+                <label class="col-sm-3 col-form-label">Nombre del vendedor: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" name="nombre_vendedor" [(ngModel)]="vendorEdited.nombre_vendedor" autofocus>
+                </div>
+
+                <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
+                <div class="col-sm-8">
+                    <select class="form-select" [(ngModel)]="selected" name="Selected">
+                        <option selected>Selecciona un comprador</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
+                    </select>    
+                    {{selected}}
+                </div>-->
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label class="col-sm-3 col-form-label">Telefono del vendedor </label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" name="telefono" [(ngModel)]="vendorEdited.telefono">
+                </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label class="col-sm-3 col-form-label">Correo del vendedor: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" name="correo" [(ngModel)]="vendorEdited.correo">
+                </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label class="col-sm-3 col-form-label">RFC: </label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" name="RFC" [(ngModel)]="vendorEdited.RFC">
+                </div>  
+            </div>
+
+            
+            <div class="col text-center">
+                <button type="submit" class="btn btn-success" (click)="editVendor()">Editar Vendedor</button>
+            </div>
+        </form>    
+    </div>
+</div>
