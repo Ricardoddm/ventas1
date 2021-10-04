@@ -9,23 +9,23 @@ import { Observable } from 'rxjs';
 
 export class SalesService {
 
-  API_URI = 'http://localhost:3000/api';
+  API = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) { }
 
-  getContactos(){
-    return this.http.get(`${this.API_URI}/sales`);
+  getSales(){
+    return this.http.get(`${this.API}/sales`)
   }
-  getContacto(id:string){
-    return this.http.get(`${this.API_URI}/sales/${id}`)
+
+  getConsortiums(){
+    return this.http.get(`${this.API}/sales/consortium`)
   }
-  deleteContacto(id:string){
-    return this.http.delete(`${this.API_URI}/sales/${id}`)
+
+  getEnterprises(id: string ){
+    return this.http.get(`${this.API}/sales/enterprise/${id}`)
   }
-  saveContacto(contacto:Sale){
-    return this.http.post(`${this.API_URI}/sales`, contacto)
-  }
-  updateContacto(id: string|number, updated:Sale): Observable<Sale>{
-    return this.http.put(`${this.API_URI}/sales/${id}`,updated)
+
+  getProducts(id: string){
+    return this.http.get(`${this.API}/sales/product/${id}`)
   }
 }

@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { ContactsService } from '../services/contacts.service';
+import { SalesService } from '../services/sales.service';
 
 @Component({
   selector: 'app-register-sale',
@@ -10,36 +10,66 @@ export class RegisterSaleComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
-  contacts: any = [];
+  sales: any = [];
   consortiums: any = [];
-  selected: string = '';
+  enterprises: any = [];
+  products: any = [];
 
-  constructor(private salesService: ContactsService) { }
+  selectedConsort: string = '';
+  selectedEnter: string = '';
+  newValue: string = '';
+
+  constructor(private salesService: SalesService) { }
 
   ngOnInit() {
-    this.getContacts();
+    this.getSales();
     this.getConsortiums();
   }
 
-  getContacts() {
-    this.salesService.getContacts()
+  getSales() {
+    this.salesService.getSales()
     .subscribe(
       res => {
-        this.contacts = res;
+        this.sales = res;
         console.log(res);
       },
       err => console.error(err)
     );
   }
+
   getConsortiums() {
     this.salesService.getConsortiums()
     .subscribe(
       res => {
-        this.contacts = res;
+        this.consortiums = res;
         console.log(res);
       },
       err => console.error(err)
-    );
+    )
+  }
+
+  getEnterprises(newValue: string){
+    console.log(newValue);
+    this.salesService.getEnterprises(newValue)
+    .subscribe(
+      res => {
+        this.enterprises = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    )
+  }
+
+  getProducts(newValue: string){
+    console.log(newValue);
+    this.salesService.getProducts(newValue)
+    .subscribe(
+      res => {
+        this.products = res;
+        console.log(res);
+      },
+      err => console.error(err)
+    )
   }
 
 }

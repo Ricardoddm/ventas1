@@ -1,7 +1,8 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+
+//Se importa el servicio de ventas y el modelo de ventas
 import { SalesService } from '../services/sales.service';
-import { variable } from '@angular/compiler/src/output/output_ast';
-//import {Sale} from 'src/app/models/sales'
+import { Sale } from '../models/sales';
 
 
 @Component({
@@ -12,31 +13,23 @@ import { variable } from '@angular/compiler/src/output/output_ast';
 export class SaleListComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
-  cont: any = [];
+  sales: any = [];
 
   constructor(private salesService: SalesService) { }
 
   ngOnInit() {
-    this.getcontactos();
+    this.getSales();
   }
-  getcontactos(){
-    this.salesService.getContactos().subscribe(
-      res=>{
-        this.cont=res;
+
+  getSales() {
+    this.salesService.getSales()
+    .subscribe(
+      res => {
+        this.sales = res;
+        console.log(res);
       },
-      err=> console.error(err)
+      err => console.error(err)
     );
   }
-  delete(id_contacto: string){
-    this.salesService.deleteContacto(id_contacto).subscribe(
-      res=>{
-        this.cont=res;
-        this.getcontactos();
-      },
-      err=> console.error(err)
-    );
-  }
-  edit(id_contacto:string){
-    console.log(id_contacto);
-  }
+
 }
