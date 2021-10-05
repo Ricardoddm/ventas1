@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { ContactsService } from '../services/contacts.service';
+import { SalesService } from '../services/sales.service';
 
 @Component({
   selector: 'app-register-sale',
@@ -7,27 +7,43 @@ import { ContactsService } from '../services/contacts.service';
   styleUrls: ['./register-sale.component.css']
 })
 export class RegisterSaleComponent implements OnInit {
+  @HostBinding('class') classes='row';
 
-  @HostBinding('class') classes = 'row';
+  sales: any = [];
+  consortiums: any = [];
+  enterprises: any = [];
+  products: any = [];
 
-  contacts: any = [];
-  selected: string = '';
+  selectedConsort: string = '';
+  selectedEnter: string = '';
+  newValue: string = '';
 
-  constructor(private salesService: ContactsService) { }
+  constructor(private salesService: SalesService) { }
 
   ngOnInit() {
-    this.getContacts();
+    this.getSales();
+    this.getConsortiums();
   }
 
-  getContacts() {
-    this.salesService.getContacts()
+  getSales() {
+    this.salesService.getSales()
     .subscribe(
       res => {
-        this.contacts = res;
+        this.sales = res;
         console.log(res);
       },
       err => console.error(err)
     );
   }
-
+/*
+  update(){
+    this.contactosService.updateContacto(this.contacto.id_contacto,this.contacto).subscribe(
+        res=>{
+          console.log(res);
+          this.router.navigate(['/sales'])
+        }, 
+        err=>console.log(err)
+        
+      )
+  }*/
 }
