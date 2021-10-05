@@ -227,26 +227,16 @@ CREATE TABLE `ventas` (
   `id_venta` int(10) NOT NULL,
   `id_comprador` int(10) NOT NULL,
   `id_vendedor` int(10) DEFAULT NULL,
-  `id_venta_producto` int(10) DEFAULT NULL,
+  `id_producto` int(10) DEFAULT NULL,
+  `cantidad` int(10) NOT NULL,
+  `subtotal` int(10) NOT NULL,
+  `iva` int(10) NOT NULL,
+  `total` int(10) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `ventas`
---
-
-CREATE TABLE `ventas_productos` (
-  `id_venta_producto` int(10) NOT NULL,
-  `id_consorcio` int(10) DEFAULT NULL,
-  `cantidad` int(10) NOT NULL,
-  `subtotal` int(10) NOT NULL,
-  `iva` int(10) NOT NULL,
-  `total` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
 --
 -- Índices para tablas volcadas
 --
@@ -317,14 +307,7 @@ ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id_venta`),
   ADD KEY `vendedores` (`id_vendedor`),
   ADD KEY `compradores` (`id_comprador`),
-  ADD KEY `ventas_productos` (`id_venta_producto`);
-
---
--- Indices de la tabla `ventas_productos`
---
-ALTER TABLE `ventas_productos`
-  ADD PRIMARY KEY (`id_venta_producto`),
-  ADD KEY `consorcios` (`id_consorcio`);
+  ADD KEY `productos` (`id_producto`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -383,12 +366,6 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `vendedores`
   MODIFY `id_vendedor` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `ventas_productos`
---
-ALTER TABLE `ventas_productos`
-  MODIFY `id_venta_producto` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
