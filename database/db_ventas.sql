@@ -35,6 +35,11 @@ CREATE TABLE `compradores` (
    
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `compradores` (`id_comprador`, `comprador`, `id_contacto`, `id_direccion`) VALUES
+(1, `Ricardo`, `123`, 1, 1),
+(2, `Antonio`, `123`, 2, 2),
+(3, `Paloma`, `123`, 3, 3),
+(4, `Pablo`, `123`, 4, 4);
 -- --------------------------------------------------------
 
 --
@@ -54,9 +59,10 @@ CREATE TABLE `contactos` (
 --
 
 INSERT INTO `contactos` (`id_contacto`, `nombre_contacto`, `telefono`, `correo`, `RFC`) VALUES
-(1, 'ricardo1', '123', '123', '123'),
-(2, 'ricardo1', '123', '123', '123'),
-(3, 'ricardo1', '123', '123', '123');
+(1, `Ricardo`, `123`, `ricardo@correo.com`, `ricardo123`),
+(2, `Antonio`, `123`, `antonio@correo.com`, `antonio123`),
+(3, `Paloma`, `123`, `paloma@correo.com`, `paloma123`),
+(4, `Pablo`, `123`, `pablo@correo.com`, `pablo123`);
 
 -- --------------------------------------------------------
 
@@ -79,13 +85,19 @@ CREATE TABLE `direcciones` (
   `id_direccion` int(10) NOT NULL,
   `pais` varchar(45) NOT NULL,
   `estado` varchar(45) NOT NULL,
+  `municipio` varchar(45) NOT NULL,
   `colonia` varchar(45) NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `codigo_postal` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+INSERT INTO `direcciones` (`id_direccion`, `pais`, `estado`, `municipio`, `colonia`, `direccion`, `codigo_postal`) VALUES
+(1, `México`, `Aguascalientes`, `Aguascalientes`, `Victoria`, `calle 23`, `18896`),
+(2, `México`, `Aguascalientes`, `Asientos`, `Guadalupe`, `calle 3`, `33451`),
+(3, `México`, `Aguascalientes`, `Aguascalientes`, `San Gerardo`, `calle 332`, `12345`),
+(4, `México`, `Jalisco`, `Teocaltiche` `Centro`, `calle 15`, `47200`);
 
+-- --------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `direcciones`
 --
@@ -94,6 +106,7 @@ CREATE TABLE `direcciones_empresas` (
   `id_direccion_empresa` int(10) NOT NULL,
   `pais` varchar(45) NOT NULL,
   `estado` varchar(45) NOT NULL,
+  `municipio` varchar(45) NOT NULL,
   `colonia` varchar(45) NOT NULL,
   `direccion` varchar(45) NOT NULL,
   `codigo_postal` int(5) NOT NULL
@@ -216,6 +229,12 @@ CREATE TABLE `vendedores` (
   `correo` varchar(45) NOT NULL,
   `RFC` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `vendedores` (`id_vendedor`, `nombre_vendedor`, `telefono`, `correo`, `RFC`) VALUES
+(1, `Ricardo`, `123`, `ricardo@correo.com`, `ricardo123`),
+(2, `Antonio`, `123`, `antonio@correo.com`, `antonio123`),
+(3, `Paloma`, `123`, `paloma@correo.com`, `paloma123`),
+(4, `Pablo`, `123`, `pablo@correo.com`, `pablo123`);
 
 -- --------------------------------------------------------
 
