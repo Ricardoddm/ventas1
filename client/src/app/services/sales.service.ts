@@ -16,16 +16,22 @@ export class SalesService {
   getContactos(){
     return this.http.get(`${this.API_URI}/sales`);
   }
-  getContacto(id_contacto:number|string){
-    return this.http.get(`${this.API_URI}/sales/${id_contacto}`)
+
+
+  getConsortiums(){
+    return this.http.get(`${this.API}/sales/consortium`)
   }
-  deleteContacto(id_contacto:number|string){
-    return this.http.delete(`${this.API_URI}/sales/${id_contacto}`)
+
+  getEnterprises(id: string ){
+    return this.http.get(`${this.API}/sales/enterprise/${id}`)
   }
-  saveContacto(contacto:Sale){
-    return this.http.post(`${this.API_URI}/sales`, contacto)
+
+  getProducts(id: string){
+    return this.http.get(`${this.API}/sales/product/${id}`)
   }
-  updateContacto(id_contacto:number|any,update:Sale): Observable<Sale>{
-    return this.http.put(`${this.API_URI}/sales/${id_contacto}`,update)
+
+  getProductDetail(id: string){
+    return this.http.get(`${this.API}/products/${id}`)
   }
 }
+
