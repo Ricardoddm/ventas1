@@ -15,12 +15,17 @@ class SalesRoutes{
     }
    config() {
         //Indica las rutas validas según el metodo programado en el controlador salesroutes.ts 
-        this.router.get('/', salesController.list);
-        this.router.get('/:id', salesController.getOne);
-        this.router.post('/', salesController.create);
-        this.router.delete('/:id', salesController.delete);
-        this.router.put('/:id', salesController.update);
-        
+
+        this.router.get('/', salesController.listSales);
+        this.router.post('/', salesController.createSale);
+        this.router.get('/consortium', salesController.listConsortium);
+
+        //Estas rutas indican que se requiere un id o cualquier identificador de la venta 
+        this.router.put('/:id', salesController.updateSale);
+        this.router.delete('/:id', salesController.deleteSale);
+        this.router.get('/enterprise/:id', salesController.listEnterprise);
+        this.router.get('/product/:id', salesController.listProducts);
+
     }
 }
 const salesRoutes = new SalesRoutes();

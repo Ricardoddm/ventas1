@@ -4,70 +4,8 @@
 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card-body">
         <form action="">
-            <!--BLOQUE DEL COMPRADOR-->
-            <h2>Información del comprador</h2>
-            <br>
-            <div class="row mb-3 justify-content-center">
-                <label for="inputNombreEmpresa/Org" class="col-sm-3 col-form-label">Empresa/Organización</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" id="idempresa" placeholder="Nombre de la empresa u organización">
-                </div>  
-                <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
-                <div class="col-sm-8">
-                    <select class="form-select" [(ngModel)]="selected" name="Selected">
-                        <option selected>Selecciona un comprador</option>
-                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
-                        la propiedad 'value'
-                        <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
-                    </select>    
-                    {{selected}}
-                </div>-->
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="inputRepresentante" class="col-sm-3 col-form-label">Representante</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" id="idrepresentante" placeholder="Nombre del representante de la empresa u organización">
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección</label>
-                <div class="col-sm-5">
-                    <textarea class="form-control" id="inputDireccion" rows="3"></textarea>
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="inputPais" class="col-sm-3 col-form-label">Pais</label>
-                <div class="col-sm-5">
-                    <select class="form-select" aria-label="selectProducto">
-                        <option selected>Selecciona un pais</option>
-                        <option value="1">Juanito</option>
-                    </select>
-                </div>  
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
-                <div class="col-sm-5">
-                    <select class="form-select" aria-label="selectProducto">
-                        <option selected>Selecciona un estado</option>
-                        <option value="1">Juanito</option>
-                    </select>
-                </div>  
-            </div>
-            
-            <div class="row mb-3 justify-content-center">
-                <label for="inputRFC" class="col-sm-3 col-form-label">RFC</label>
-                <div class="col-sm-5">
-                    <input type="text" class="form-control" id="idrfc" placeholder="RFC ligado a la empresa u organización">
-                </div>  
-            </div>
-            <!--BLOQUE DEL COMPRADOR-->
             <!--BLOQUE DE LA VENTA-->
             <h2>Información de la venta</h2>
-            <br>
             <div class="row mb-3 justify-content-center">
                 <label for="inputVendedor" class="col-sm-3 col-form-label">Vendedor</label>
                 <div class="col-sm-5">
@@ -77,13 +15,49 @@
                     </select>
                 </div>  
             </div>
-        
+
+            <div class="row mb-3 justify-content-center">
+                <label for="inputComprador" class="col-sm-3 col-form-label">Comprador</label>
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="selectVendedor">
+                        <option selected>Selecciona un vendedor</option>
+                        <option value="1">Juanito</option>
+                    </select>
+                </div>  
+            </div>
+            
+            <div class="row mb-3 justify-content-center">
+                <label for="inputConsorcio" class="col-sm-3 col-form-label">Consorcio</label>
+                    <div class="col-sm-5">
+                        <select class="form-select" [(ngModel)]="selectedConsort" (ngModelChange)="getEnterprises($event)" name="Selected">
+                            <option value="" disabled selected>Selecciona un consorcio</option>
+                            Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                            la propiedad 'value'
+                            <option selected [value] ="consortium.id_consorcio" *ngFor="let consortium of consortiums">{{consortium.nombre_consorcio}}</option>
+                        </select>
+                    </div>  
+            </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="inputEmpresa" class="col-sm-3 col-form-label">Empresa</label>
+                <div class="col-sm-5">
+                    <select class="form-select" [(ngModel)]="selectedEnter" (ngModelChange)="getProducts($event)" name="Selected">
+                        <option value="" disabled selected>Selecciona una empresa</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option selected [value] ="enterprise.id_empresa" *ngFor="let enterprise of enterprises">{{enterprise.nombre_empresa}}</option>
+                    </select>
+                </div>  
+            </div>
+
             <div class="row mb-3 justify-content-center">
                 <label for="inputProducto" class="col-sm-3 col-form-label">Producto</label>
                 <div class="col-sm-5">
-                    <select class="form-select" aria-label="selectProducto">
-                        <option selected>Selecciona un producto</option>
-                        <option value="1">Juanito</option>
+                    <select class="form-select" [(ngModel)]="selectedProduct" (ngModelChange)="getProductDetail($event)" name="Selected">
+                        <option value="" disabled selected>Selecciona un producto</option>
+                        Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                        la propiedad 'value'
+                        <option selected [value] ="product.id_producto" *ngFor="let product of products">{{product.nombre_producto}}</option>
                     </select>
                 </div>  
             </div>
@@ -91,30 +65,110 @@
             <div class="row mb-3 justify-content-center">
                 <label for="inputCantidad" class="col-sm-3 col-form-label">Cantidad</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="idCantidad">
+                    <input type="text" class="form-control" #idCantidad [(ngModel)]="selectedAmount" (ngModelChange)="calSubtotal($event)" name="inputCantidad">
                 </div>  
             </div>
         
             <div class="row mb-3 justify-content-center">
-                <label for="inputSubtotal" class="col-sm-1 col-form-label">Subtotal</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="idSubtotal">
-                </div>  
-            
-                <label for="inputIVA" class="col-sm-1 col-form-label">IVA</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="idIVA">
-                </div> 
-        
-                <label for="inputTotal" class="col-sm-1 col-form-label">Total</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="idTotal">
+                <label for="inputSubtotal" class="col-sm-3 col-form-label">Subtotal</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idSubtotal" #idSubtotal [(ngModel)]="selectedSubtotal" (ngModelChange)="calSubtotal($event)" name="inputCantidad">
                 </div>  
             </div>
+
+            <div class="row mb-3 justify-content-center">
+                <label for="inputIVA" class="col-sm-3 col-form-label">IVA</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idIVA" [(ngModel)]="selectedTotal" (ngModelChange)="calTotal($event)" name="inputIVA">
+                </div> 
+            </div>
+            
+            <div class="row mb-3 justify-content-center">
+                <label for="inputTotal" class="col-sm-3 col-form-label">Total</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="idTotal" #idTotal>
+                </div>  
+            </div>    
+        
+            <div class="row mb-3 justify-content-center">
+                <label >¿ El comprador está registrado en la base de datos Investel ?</label>
+                <div class="col-sm-5">
+                    <div class="form-check">
+                        <input class="form-check-input" data-bs-toggle="collapse" href="#collapseExample" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            No
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--BLOQUE DE LA VENTA-->
+
+            <!--BLOQUE DEL COMPRADOR-->
+            <div class="collapse" id="collapseExample">
+                <h2>Información del comprador</h2>
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputNombreEmpresa/Org" class="col-sm-3 col-form-label">Empresa/Organización</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="idempresa" placeholder="Nombre de la empresa u organización">
+                    </div>  
+                    <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
+                    <div class="col-sm-8">
+                        <select class="form-select" [(ngModel)]="selected" name="Selected">
+                            <option selected>Selecciona un comprador</option>
+                            Para obtener el id del contacto que se selecciono de la lista se debe añadir
+                            la propiedad 'value'
+                            <option [value] ="contact.id_contacto" *ngFor="let contact of contacts">{{contact.nombre_contacto}}</option>
+                        </select>    
+                        {{selected}}
+                    </div>-->
+                </div>
+
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputRepresentante" class="col-sm-3 col-form-label">Representante</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="idrepresentante" placeholder="Nombre del representante de la empresa u organización">
+                    </div>  
+                </div>
+
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputDireccion" class="col-sm-3 col-form-label">Dirección</label>
+                    <div class="col-sm-5">
+                        <textarea class="form-control" id="inputDireccion" rows="3"></textarea>
+                    </div>  
+                </div>
+
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputPais" class="col-sm-3 col-form-label">Pais</label>
+                    <div class="col-sm-5">
+                        <select class="form-select" aria-label="selectProducto">
+                            <option selected>Selecciona un pais</option>
+                            <option value="1">Juanito</option>
+                        </select>
+                    </div>  
+                </div>
+
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputEstado" class="col-sm-3 col-form-label">Estado</label>
+                    <div class="col-sm-5">
+                        <select class="form-select" aria-label="selectProducto">
+                            <option selected>Selecciona un estado</option>
+                            <option value="1">Juanito</option>
+                        </select>
+                    </div>  
+                </div>
+                
+                <div class="row mb-3 justify-content-center">
+                    <label for="inputRFC" class="col-sm-3 col-form-label">RFC</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="idrfc" placeholder="RFC ligado a la empresa u organización">
+                    </div>  
+                </div>
+            </div>
+            <!--BLOQUE DEL COMPRADOR-->
+    
             <div class="col text-center">
                 <button type="submit" class="btn btn-success">Guardar Venta</button>
             </div>
-            <!--BLOQUE DEL COMPRADOR-->
         </form>    
     </div>
 </div>
