@@ -28,4 +28,8 @@ export class SalesService {
   getProducts(id: string){
     return this.http.get(`${this.API}/sales/product/${id}`)
   }
+
+  getProductDetail(id: string){
+    return this.http.get(`${this.API}/products/${id}`)
+  }
 }

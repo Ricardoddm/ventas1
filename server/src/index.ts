@@ -5,7 +5,11 @@ import cors from 'cors';
 import indexRoutes from './routes/indexroutes';
 import salesRoutes from './routes/salesroutes';
 import contactsRoutes from './routes/contactsroutes';
-import buyersroutes from './routes/buyersroutes';
+import buyersRoutes from './routes/buyersroutes';
+import productsRoutes from './routes/productsroutes';
+
+import productsController from './controllers/productscontrollers';
+import productsroutes from './routes/productsroutes';
 
 class Server {
 
@@ -29,8 +33,9 @@ class Server {
     routes(): void {
         this.app.use('/', indexRoutes);
         this.app.use('/api/sales', salesRoutes);
+        this.app.use('/api/products', productsRoutes)
         this.app.use('/api/contacts', contactsRoutes);
-        this.app.use('/api/buyers', buyersroutes);
+        this.app.use('/api/buyers', buyersRoutes);
     }
 
     start() {

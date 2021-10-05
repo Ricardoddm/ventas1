@@ -64,7 +64,7 @@ class SalesController{
     public async listProducts(req: Request, res: Response){
         const { id } = req.params;
 
-        const products = await db.query('SELECT p.nombre_producto FROM productos p LEFT JOIN empresas e ON p.id_empresa = e.id_empresa WHERE e.id_empresa = ?', [id]);
+        const products = await db.query('SELECT p.id_producto, p.nombre_producto FROM productos p LEFT JOIN empresas e ON p.id_empresa = e.id_empresa WHERE e.id_empresa = ?', [id]);
         res.json(products); 
     }
 }

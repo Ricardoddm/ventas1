@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import { SalesService } from '../services/sales.service';
 
 @Component({
@@ -6,24 +6,37 @@ import { SalesService } from '../services/sales.service';
   templateUrl: './register-sale.component.html',
   styleUrls: ['./register-sale.component.css']
 })
-export class RegisterSaleComponent implements OnInit {
+export class RegisterSaleComponent implements AfterViewInit {
 
   @HostBinding('class') classes = 'row';
-
+  @ViewChild("idCantidad") cantidad!: ElementRef;
+  @ViewChild("idSubtotal") subtotal!: ElementRef;
+  @ViewChild("idTotal") total!: ElementRef;
+  
   sales: any = [];
   consortiums: any = [];
   enterprises: any = [];
   products: any = [];
+  productDetail: any = [];
 
   selectedConsort: string = '';
   selectedEnter: string = '';
-  newValue: string = '';
+  selectedProduct: string = '';
+  selectedAmount: string = '';
+  selectedSubtotal: string = '';
+  selectedTotal: string = '';
+  unitPrice: number = 0;
+  subtotalPrice: number = 0;
 
   constructor(private salesService: SalesService) { }
-
+  
   ngOnInit() {
     this.getSales();
     this.getConsortiums();
+  }
+
+  ngAfterViewInit(){
+
   }
 
   getSales() {
@@ -48,9 +61,9 @@ export class RegisterSaleComponent implements OnInit {
     )
   }
 
-  getEnterprises(newValue: string){
-    console.log(newValue);
-    this.salesService.getEnterprises(newValue)
+  getEnterprises(idConsotium: string){
+    console.log(idConsotium);
+    this.salesService.getEnterprises(idConsotium)
     .subscribe(
       res => {
         this.enterprises = res;
@@ -60,9 +73,9 @@ export class RegisterSaleComponent implements OnInit {
     )
   }
 
-  getProducts(newValue: string){
-    console.log(newValue);
-    this.salesService.getProducts(newValue)
+  getProducts(idEnterprise: string){
+    console.log(idEnterprise);
+    this.salesService.getProducts(idEnterprise)
     .subscribe(
       res => {
         this.products = res;
@@ -72,4 +85,36 @@ export class RegisterSaleComponent implements OnInit {
     )
   }
 
+  getProductDetail(idProduct: string){
+    console.log(idProduct);
+    this.salesService.getProductDetail(idProduct)
+    .subscribe(
+      res=> {
+        this.productDetail = res;
+        this.unitPrice = this.productDetail.precio_unitario;
+        if(this.productDetail.servicio == 1){
+          this.cantidad.nativeElement.value = 1;
+          this.cantidad.nativeElement.disabled = true;
+          this.subtotal.nativeElement.value = this.unitPrice;        
+        }
+        else{
+          this.cantidad.nativeElement.disabled = false;  
+          this.cantidad.nativeElement.value = ''
+        }   
+      }
+    )
+  }
+
+  calSubtotal(amount: number){
+    console.log(amount);
+    this.subtotalPrice = this.unitPrice * amount;
+    this.subtotal.nativeElement.value = this.subtotalPrice;
+  }
+
+  calTotal(iva: number){
+    let ivaC: any = iva / 100;
+    let tax: number = this.subtotalPrice * ivaC;
+    let total: number = this.subtotalPrice + tax; 
+    this.total.nativeElement.value = total;
+  }
 }
