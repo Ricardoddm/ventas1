@@ -6,6 +6,7 @@ import { SalesService } from '../services/sales.service';
   templateUrl: './register-sale.component.html',
   styleUrls: ['./register-sale.component.css']
 })
+
 export class RegisterSaleComponent implements AfterViewInit {
 
   @HostBinding('class') classes = 'row';
@@ -18,37 +19,10 @@ export class RegisterSaleComponent implements AfterViewInit {
   enterprises: any = [];
   products: any = [];
   productDetail: any = [];
+export class RegisterSaleComponent implements OnInit {
+  @HostBinding('class') classes='row';
 
-  selectedConsort: string = '';
-  selectedEnter: string = '';
-  selectedProduct: string = '';
-  selectedAmount: string = '';
-  selectedSubtotal: string = '';
-  selectedTotal: string = '';
-  unitPrice: number = 0;
-  subtotalPrice: number = 0;
 
-  constructor(private salesService: SalesService) { }
-  
-  ngOnInit() {
-    this.getSales();
-    this.getConsortiums();
-  }
-
-  ngAfterViewInit(){
-
-  }
-
-  getSales() {
-    this.salesService.getSales()
-    .subscribe(
-      res => {
-        this.sales = res;
-        console.log(res);
-      },
-      err => console.error(err)
-    );
-  }
 
   getConsortiums() {
     this.salesService.getConsortiums()

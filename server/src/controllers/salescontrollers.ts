@@ -2,6 +2,7 @@ import {Request, Response} from 'express';
 import db from'../database';
 
 class SalesController{
+
     // Metodo que enlista todas las ventas que se tienen guardadas en la tabla de ventas
     public async listSales(req: Request, res: Response ){
 
@@ -68,7 +69,5 @@ class SalesController{
         res.json(products); 
     }
 }
-
-const salesController = new SalesController();
-
+const salesController =new SalesController();
 export default salesController;

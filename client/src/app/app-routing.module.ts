@@ -17,16 +17,8 @@ const routes: Routes = [
     component: RegisterSaleComponent
   },
   {
-    path: 'contacts',
-    component: ContactListComponent
-  },
-  {
-    path: 'contacts/:id',
-    component: EditContactComponent
-  },
-  {
-    path: 'register-contact',
-    component: RegisterContactComponent
+    path: 'sale/edit/:id_contacto',
+    component: RegisterSaleComponent
   }
 ];
 

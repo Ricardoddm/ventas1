@@ -9,13 +9,14 @@ import { Observable } from 'rxjs';
 
 export class SalesService {
 
-  API = 'http://localhost:3000/api';
+  API_URI = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) { }
 
-  getSales(){
-    return this.http.get(`${this.API}/sales`)
+  getContactos(){
+    return this.http.get(`${this.API_URI}/sales`);
   }
+
 
   getConsortiums(){
     return this.http.get(`${this.API}/sales/consortium`)
@@ -33,3 +34,4 @@ export class SalesService {
     return this.http.get(`${this.API}/products/${id}`)
   }
 }
+

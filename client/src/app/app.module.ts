@@ -12,6 +12,7 @@ import { RegisterContactComponent } from './register-contact/register-contact.co
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 
+import{SalesService} from './services/sales.service'
 @NgModule({
 
   // El bloque de declarations es solo para declarar los componentes propios
@@ -19,10 +20,7 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
     AppComponent,
     NavigationComponent,
     SaleListComponent,
-    RegisterSaleComponent,
-    RegisterContactComponent,
-    ContactListComponent,
-    EditContactComponent,
+    RegisterSaleComponent
   ],
 
   // El bloque de imports es solo para modulos nativos del nucleo de AngularJS
@@ -32,10 +30,13 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
     BrowserModule,
     AppRoutingModule,
     // El modulo de Http se debe declarar como import
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   
-  providers: [],
+  providers: [
+    SalesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

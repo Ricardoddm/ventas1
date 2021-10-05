@@ -17,7 +17,7 @@ export class RegisterContactComponent implements OnInit {
     telefono: '',
     correo: '',
     RFC: ''
-  };
+  }
   edit: boolean=false;
 
   constructor(private contactsService: ContactsService, private router: Router, private activedRoute: ActivatedRoute) { }
