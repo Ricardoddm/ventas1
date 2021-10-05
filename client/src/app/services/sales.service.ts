@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class SalesService {
 
   API_URI = 'http://localhost:3000/api';
+  getSales: any;
 
   constructor(private http: HttpClient) { }
 
@@ -19,22 +20,18 @@ export class SalesService {
 
 
   getConsortiums(){
-    return this.http.get(`${this.API}/sales/consortium`)
+    return this.http.get(`${this.API_URI}/sales/consortium`)
   }
 
   getEnterprises(id: string ){
-    return this.http.get(`${this.API}/sales/enterprise/${id}`)
+    return this.http.get(`${this.API_URI}/sales/enterprise/${id}`)
   }
 
   getProducts(id: string){
-    return this.http.get(`${this.API}/sales/product/${id}`)
+    return this.http.get(`${this.API_URI}/sales/product/${id}`)
   }
 
   getProductDetail(id: string){
-    return this.http.get(`${this.API}/products/${id}`)
+    return this.http.get(`${this.API_URI}/products/${id}`)
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 7a0d9998bd7e695df7199c13fd9ce35de75a92b2
