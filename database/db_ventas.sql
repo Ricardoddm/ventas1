@@ -32,14 +32,15 @@ CREATE TABLE `compradores` (
   `comprador` varchar(60) NOT NULL,
   `id_contacto` int(10) NOT NULL,
   `id_direccion` int(10) NOT NULL
+   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
    
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 INSERT INTO `compradores` (`id_comprador`, `comprador`, `id_contacto`, `id_direccion`) VALUES
-(1, `Ricardo`, `123`, 1, 1),
-(2, `Antonio`, `123`, 2, 2),
-(3, `Paloma`, `123`, 3, 3),
-(4, `Pablo`, `123`, 4, 4);
+(1, 'Ricardo', 1, 1),
+(2, 'Antonio', 2, 2),
+(3, 'Paloma', 3, 3),
+(4, 'Pablo', 4, 4); 
+
+
 -- --------------------------------------------------------
 
 --
@@ -54,15 +55,13 @@ CREATE TABLE `contactos` (
   `RFC` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `contactos`
---
-
 INSERT INTO `contactos` (`id_contacto`, `nombre_contacto`, `telefono`, `correo`, `RFC`) VALUES
-(1, `Ricardo`, `123`, `ricardo@correo.com`, `ricardo123`),
-(2, `Antonio`, `123`, `antonio@correo.com`, `antonio123`),
-(3, `Paloma`, `123`, `paloma@correo.com`, `paloma123`),
-(4, `Pablo`, `123`, `pablo@correo.com`, `pablo123`);
+(1, 'Ricardo', '1234', 'ricardo@correo.com', 'ricardo123'),
+(2, 'Antonio', '1235', 'antonio@correo.com', 'antonio123'),
+(3, 'Paloma', '1236', 'paloma@correo.com', 'paloma123'),
+(4, 'Pablo', '1237', 'pablo@correo.com', 'pablo123');
+
+
 
 -- --------------------------------------------------------
 
@@ -92,10 +91,11 @@ CREATE TABLE `direcciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `direcciones` (`id_direccion`, `pais`, `estado`, `municipio`, `colonia`, `direccion`, `codigo_postal`) VALUES
-(1, `México`, `Aguascalientes`, `Aguascalientes`, `Victoria`, `calle 23`, `18896`),
-(2, `México`, `Aguascalientes`, `Asientos`, `Guadalupe`, `calle 3`, `33451`),
-(3, `México`, `Aguascalientes`, `Aguascalientes`, `San Gerardo`, `calle 332`, `12345`),
-(4, `México`, `Jalisco`, `Teocaltiche` `Centro`, `calle 15`, `47200`);
+(1, 'México', 'Aguascalientes', 'Aguascalientes', 'Victoria', 'calle 23', '18896'),
+(2, 'México', 'Aguascalientes', 'Asientos', 'Guadalupe', 'calle 3', '33451'),
+(3, 'México', 'Aguascalientes', 'Aguascalientes', 'San Gerardo', 'calle 332', '12345'),
+(4, 'México', 'Jalisco', 'Teocaltiche', 'Centro', 'calle 15', '47200');
+
 
 -- --------------------------------------------------------
 --
@@ -231,10 +231,10 @@ CREATE TABLE `vendedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `vendedores` (`id_vendedor`, `nombre_vendedor`, `telefono`, `correo`, `RFC`) VALUES
-(1, `Ricardo`, `123`, `ricardo@correo.com`, `ricardo123`),
-(2, `Antonio`, `123`, `antonio@correo.com`, `antonio123`),
-(3, `Paloma`, `123`, `paloma@correo.com`, `paloma123`),
-(4, `Pablo`, `123`, `pablo@correo.com`, `pablo123`);
+(1, 'Ricardo', '1234', 'ricardo@correo.com', 'ricardo123'),
+(2, 'Antonio', '1235', 'antonio@correo.com', 'antonio123'),
+(3, 'Paloma', '1236', 'paloma@correo.com', 'paloma123'),
+(4, 'Pablo', '1237', 'pablo@correo.com', 'pablo123');
 
 -- --------------------------------------------------------
 
@@ -265,8 +265,8 @@ CREATE TABLE `ventas` (
 --
 ALTER TABLE `compradores`
   ADD PRIMARY KEY (`id_comprador`),
-  ADD KEY `direcciones` (`id_direccion`),
-  ADD KEY `contactos` (`id_contacto`);
+  ADD KEY `contactos` (`id_contacto`),
+  ADD KEY `direcciones` (`id_direccion`);
 
 --
 -- Indices de la tabla `contactos`
