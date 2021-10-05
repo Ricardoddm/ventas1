@@ -6,6 +6,7 @@ import indexRoutes from './routes/indexroutes';
 import salesRoutes from './routes/salesroutes';
 import contactsRoutes from './routes/contactsroutes';
 import buyersroutes from './routes/buyersroutes';
+import vendorsroutes from './routes/vendorsroutes';
 
 class Server {
 
@@ -31,6 +32,7 @@ class Server {
         this.app.use('/api/sales', salesRoutes);
         this.app.use('/api/contacts', contactsRoutes);
         this.app.use('/api/buyers', buyersroutes);
+        this.app.use('/api/vendors', vendorsroutes);
     }
 
     start() {
