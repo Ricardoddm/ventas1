@@ -2,11 +2,13 @@
 <br>
 <div class="card shadow-lg p-3 mb-5 bg-white rounded">
     <div class="card-body">
-        <form action="">
-            <div class="row mb-3 justify-content-center">
-                <label class="col-sm-3 col-form-label">Nombre del contacto: </label>
+        <form action="" class="formulario" id="formulario" (ngSubmit)="saveContact()" #f="ngForm">
+            <div class="row mb-3 needs-validation was-validated justify-content-center"novalidate>
+                <form class="row mb-3 needs-validation was-validated"novalidate></form>
+                <label for="validationCustom01"class="col-sm-3 col-form-label">Nombre del contacto: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto">
+                    <input class="form-control" type="text" name="nombre_contacto"[(ngModel)]="contacto.nombre_contacto" placeholder="Ingresa el nombre del contacto" minlength="3" maxlength="40" id="validationCustom01" value=" "required>
+                    <div class="valid-feedback">Llenado</div>
                 </div>  
                 <!--<label for="inputComprador" class="col-sm-2 col-form-label">Comprador</label>
                 <div class="col-sm-8">
@@ -20,30 +22,36 @@
                 </div>-->
             </div>
 
-            <div class="row mb-3 justify-content-center">
-                <label class="col-sm-3 col-form-label">Telefono del contacto: </label>
+            <div class="row mb-3 needs-validation was-validated justify-content-center"novalidate>
+                <form class="row mb-3 needs-validation was-validated"novalidate></form>
+                <label for="validationCustom01"class="col-sm-3 col-form-label">Telefono del contacto: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto">
+                    <input class="form-control" type="text" name="telefono"[(ngModel)]="contacto.telefono" placeholder="Ingresa el telefono del contacto" minlength="10" maxlength="12" id="validationCustom01" value=" "required>
+                    <div class="valid-feedback">Llenado</div>
                 </div>  
             </div>
 
-            <div class="row mb-3 justify-content-center">
-                <label class="col-sm-3 col-form-label">Correo del contacto: </label>
+            <div class="row mb-3 needs-validation was-validated justify-content-center"novalidate>
+                <form class="row mb-3 needs-validation was-validated"novalidate></form>
+                <label for="validationCustom01"class="col-sm-3 col-form-label">Correo del contacto: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto">
+                    <input class="form-control" type="email" name="correo" [(ngModel)]="contacto.correo"placeholder="Ingresa el correo del contacto"id="validationCustom01" value=" "required>
+                    <div class="valid-feedback">Llenado</div>
                 </div>  
             </div>
 
-            <div class="row mb-3 justify-content-center">
-                <label class="col-sm-3 col-form-label">RFC: </label>
+            <div class="row mb-3 needs-validation was-validated justify-content-center"novalidate>
+                <form class="row mb-3 needs-validation was-validated"novalidate></form>
+                <label for="validationCustom01" class="col-sm-3 col-form-label">RFC: </label>
                 <div class="col-sm-5">
-                    <input class="form-control" type="text" name="RFC" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto">
+                    <input class="form-control" type="text" name="RFC" [(ngModel)]="contacto.RFC"placeholder="Ingresa el RFC del contacto"id="validationCustom01" value=" "required>
+                    <div class="valid-feedback">Llenado</div>
                 </div>  
             </div>
 
             
             <div class="col text-center">
-                <button type="submit" class="btn btn-success" (click)="saveContact()">Guardar Contacto</button>
+                <button type="submit" class="btn btn-success" [disabled]="f.invalid">Guardar Contacto</button>
             </div>
         </form>    
     </div>
