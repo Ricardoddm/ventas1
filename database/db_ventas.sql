@@ -29,38 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `compradores` (
   `id_comprador` int(10) NOT NULL,
-  `comprador` varchar(60) NOT NULL,
-  `id_contacto` int(10) NOT NULL,
-  `id_direccion` int(10) NOT NULL
+  `nombre_contacto` varchar(100) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `correo` varchar(45) NOT NULL,
+  `RFC` varchar(13) NOT NULL,
+  `pais` varchar(45) NOT NULL,
+  `estado` varchar(4) NOT NULL,
+  `municipio` varchar(45) NOT NULL,
+  `direccion` TEXT NOT NULL,
+  `codigo_postal` varchar(5) NOT NULL
    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
    
-INSERT INTO `compradores` (`id_comprador`, `comprador`, `id_contacto`, `id_direccion`) VALUES
-(1, 'Ricardo', 1, 1),
-(2, 'Antonio', 2, 2),
-(3, 'Paloma', 3, 3),
-(4, 'Pablo', 4, 4); 
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `contactos`
---
-
-CREATE TABLE `contactos` (
-  `id_contacto` int(10) NOT NULL,
-  `nombre_contacto` varchar(100) NOT NULL,
-  `telefono` varchar(10) NOT NULL,
-  `correo` varchar(45) NOT NULL,
-  `RFC` varchar(13) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `contactos` (`id_contacto`, `nombre_contacto`, `telefono`, `correo`, `RFC`) VALUES
-(1, 'Ricardo', '1234', 'ricardo@correo.com', 'ricardo123'),
-(2, 'Antonio', '1235', 'antonio@correo.com', 'antonio123'),
-(3, 'Paloma', '1236', 'paloma@correo.com', 'paloma123'),
-(4, 'Pablo', '1237', 'pablo@correo.com', 'pablo123');
-
+INSERT INTO `compradores` ( `id_comprador`, `nombre_contacto`, `telefono`, `correo`, `RFC`, `pais`, `estado`, `municipio`, `direccion`, `codigo_postal`) VALUES
+(1, 'Ricardo', '1234', 'ricardo@correo.com', 'ricardo123', 'México', 'Aguascalientes', 'Aguascalientes', 'Victoria calle 23', '18896'),
+(2, 'Antonio', '1235', 'antonio@correo.com', 'antonio123', 'México', 'Aguascalientes', 'Asientos', 'Guadalupe calle 3', '33451'),
+(3, 'Paloma', '1236', 'paloma@correo.com', 'paloma123', 'México', 'Aguascalientes', 'Aguascalientes', 'San Gerardo calle 332', '12345'),
+(4, 'Pablo', '1237', 'pablo@correo.com', 'pablo123', 'México', 'Jalisco', 'Teocaltiche', 'Centro calle 15', '47200'); 
 
 
 -- --------------------------------------------------------
@@ -73,28 +57,6 @@ CREATE TABLE `facturas` (
   `id_factura` int(10) NOT NULL,
   `id_venta` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `direcciones`
---
-
-CREATE TABLE `direcciones` (
-  `id_direccion` int(10) NOT NULL,
-  `pais` varchar(45) NOT NULL,
-  `estado` varchar(45) NOT NULL,
-  `municipio` varchar(45) NOT NULL,
-  `colonia` varchar(45) NOT NULL,
-  `direccion` varchar(45) NOT NULL,
-  `codigo_postal` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `direcciones` (`id_direccion`, `pais`, `estado`, `municipio`, `colonia`, `direccion`, `codigo_postal`) VALUES
-(1, 'México', 'Aguascalientes', 'Aguascalientes', 'Victoria', 'calle 23', '18896'),
-(2, 'México', 'Aguascalientes', 'Asientos', 'Guadalupe', 'calle 3', '33451'),
-(3, 'México', 'Aguascalientes', 'Aguascalientes', 'San Gerardo', 'calle 332', '12345'),
-(4, 'México', 'Jalisco', 'Teocaltiche', 'Centro', 'calle 15', '47200');
 
 
 -- --------------------------------------------------------
@@ -264,15 +226,7 @@ CREATE TABLE `ventas` (
 -- Indices de la tabla `compradores`
 --
 ALTER TABLE `compradores`
-  ADD PRIMARY KEY (`id_comprador`),
-  ADD KEY `contactos` (`id_contacto`),
-  ADD KEY `direcciones` (`id_direccion`);
-
---
--- Indices de la tabla `contactos`
---
-ALTER TABLE `contactos`
-  ADD PRIMARY KEY (`id_contacto`);
+  ADD PRIMARY KEY (`id_comprador`);
 
 --
 -- Indices de la tabla `facturas`
@@ -280,12 +234,6 @@ ALTER TABLE `contactos`
 ALTER TABLE `facturas`
   ADD PRIMARY KEY (`id_factura`),
   ADD KEY `ventas` (`id_venta`);
-
---
--- Indices de la tabla `direcciones`
---
-ALTER TABLE `direcciones`
-  ADD PRIMARY KEY (`id_direccion`);
 
 --
 -- Indices de la tabla `direcciones_empresas`
@@ -339,23 +287,11 @@ ALTER TABLE `compradores`
   MODIFY `id_comprador` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `contactos`
---
-ALTER TABLE `contactos`
-  MODIFY `id_contacto` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `facturas`
 --
 ALTER TABLE `facturas`
   MODIFY `id_factura` int(10) NOT NULL AUTO_INCREMENT;
   
---
--- AUTO_INCREMENT de la tabla `direcciones`
---
-ALTER TABLE `direcciones`
-  MODIFY `id_direccion` int(10) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `direcciones_empresas`
 --
