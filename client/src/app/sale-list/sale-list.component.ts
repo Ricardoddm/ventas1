@@ -24,11 +24,11 @@ export class SaleListComponent implements OnInit {
   getSales() {
     this.salesService.getSales()
     .subscribe(
-      res => {
+      (      res: any) => {
         this.sales = res;
         console.log(res);
       },
-      err => console.error(err)
+      (      err: any) => console.error(err)
     );
   }
 
